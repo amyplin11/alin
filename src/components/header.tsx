@@ -2,14 +2,14 @@ import React from 'react'
 import styled from '@emotion/styled'
 import { Link as GatsbyLink} from 'gatsby'
 import { Colors } from '../styles/colors'
-import LeafSvg from '../../static/leaf.svg'
+import MakersMark from '../../static/makers-mark.svg'
 
 const Container = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   align-items: center;
   padding: 10px;
-  border-bottom: 1px solid ${Colors.Gray100}
+  background-color: ${Colors.Green350}
 `
 
 const LinksContainer = styled.div`
@@ -21,33 +21,40 @@ const NameContainer = styled.div`
   display: flex;
   font-size: 46px;
   justify-content: center;
-  color: ${Colors.Green500};
+
+  @media only screen and (max-width: 600px) {
+    font-size: 20px;
+  }
 `
 
 
 const Link = styled(GatsbyLink)`
   text-decoration: none;
   font-size: 20px;
-  color: ${Colors.Green500};
-  transition: 0.3s;
+  color: white;
 
-  &:hover {
-    color: ${Colors.Green300};
+  @media only screen and (max-width: 600px) {
+    font-size: 12px;
   }
 `
+
+const LinkStyle = {
+  "text-decoration": "underline",
+}
 
 export const Header = () => {
   return (
     <Container>
-      <LeafSvg color={Colors.Green500}/>
+      <MakersMark />
 
       <NameContainer>
         amy lin
       </NameContainer>
 
       <LinksContainer>
-        <Link to="/">home</Link>
-        <Link to="/thoughts">thoughts</Link>
+        <Link to="/" activeStyle={LinkStyle}>home</Link>
+        <Link to="/thoughts" activeStyle={LinkStyle}>thoughts</Link>
+        <Link to="/intro" activeStyle={LinkStyle}>intro</Link>
       </LinksContainer>
     </Container>
   )

@@ -43,6 +43,6 @@ module.exports = {
           include: /static/ // See below to configure properly
         }
       }
-    }
+    },
   ]
 }

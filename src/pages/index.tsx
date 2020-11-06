@@ -15,37 +15,49 @@ const Container = styled.div`
 
 const Body = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: auto;
-  height: 90vh;
   align-items: center;
+  background-color: ${Colors.Green350};
+  height: 100vh;
+
+  @media only screen and (max-width: 600px) {
+    grid-template-columns: auto;
+  }
 `
+  // background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);
 
 const RightContainer = styled.div`
   display: flex;
   align-items: flex-start;
   flex-direction: column;
-  margin-left: 160px;
+  margin-left: 60px;
+
+  @media only screen and (max-width: 600px) {
+    margin-top: 40px;
+  }
 `
 
-const LeftContainer = styled.div`
+const MiddleContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: flex-end;
   flex-direction; column;
+
+  @media only screen and (max-width: 600px) {
+    margin-top: 20px;
+  }
 `
 
 const WelcomeText = styled.p`
-  font-weight: 500;
+  font-weight: bold;
   margin: 0;
-  font-size: 100px;
-  color: ${Colors.Green500}
+  font-size: 60px;
 `
 
 const DescriptiveText = styled.p`
   font-weight: 400;
-  font-size: 20px;
-  color: ${Colors.Green500}
+  font-size: 26px;
 `
 
 console.log('json = ', JSONData)
@@ -58,16 +70,16 @@ export default function Home() {
 
       <RightContainer>
         <WelcomeText>
-          So it goes.
+          Hello.
         </WelcomeText>
         <DescriptiveText>
-          Hi, I'm Amy. I'm currently spending some time thinking about and exploring topics that are important to me.
-          I'm hoping to document my learnings here so please feel free to stop by from time to time.
+          Thanks for joining me.
+          Take a peek at what I've been pondering
         </DescriptiveText>
       </RightContainer>
-      <LeftContainer>
+      <MiddleContainer>
         <Avocado />
-      </LeftContainer>
+      </MiddleContainer>
       </Body>
 
     </Container>

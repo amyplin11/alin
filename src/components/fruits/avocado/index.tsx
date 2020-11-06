@@ -1,14 +1,7 @@
 import React from 'react'
-import styled from '@emotion/styled'
-import { BottomAvo, TopAvo, InnerLayer, Pit,  LeftEye, RightEye, EyeBall, Shadow, Smile } from './avo.styled'
+import { Container, BottomAvo, TopAvo, InnerLayer, Pit, Shadow } from './avo.styled'
+import {  EyeBall, Eye } from '../shared'
 
-const Container = styled.div`
-  display: flex;
-  width: 200px;
-  height: 220px;
-  position: relative;
-  justify-content: center;
-`
 
 export const Avocado = () => {
   return (
@@ -17,15 +10,14 @@ export const Avocado = () => {
       <BottomAvo />
       <InnerLayer/>
       <Pit />
-      <RightEye>
+      <Eye left={76} top={110}>
           <EyeBall/>
-      </RightEye>
+      </Eye>
 
-      <LeftEye>
+      <Eye left={104} top={110}>
           <EyeBall/>
-      </LeftEye>
+      </Eye>
 
-      <Smile />
       <Shadow />
       
     </Container>
