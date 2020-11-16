@@ -1,12 +1,11 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import { Link as GatsbyLink} from 'gatsby'
-import { Global, css } from "@emotion/core";
+import { Link as GatsbyLink } from 'gatsby'
+import { Global, css } from '@emotion/core'
 
 import { TypeText } from '../components/test'
 import { Header } from '../components/header'
 import { Avocado } from '../components/fruits'
-import JSONData from '../../content/data.json'
 import { Colors } from '../styles/colors'
 import { Widths } from '../styles/widths'
 
@@ -22,7 +21,7 @@ const Body = styled.div`
   grid-template-rows: auto;
   align-items: center;
   background-color: ${Colors.Green350};
-  height: 100vh;
+  height: 90vh;
 
   @media only screen and (max-width: ${Widths.MediumScreen}px) {
     grid-template-columns: 1fr 1fr;
@@ -32,7 +31,7 @@ const Body = styled.div`
     grid-template-columns: auto;
   }
 `
-  // background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);
+// background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);
 
 const LeftContainer = styled.div`
   display: flex;
@@ -46,6 +45,7 @@ const LeftContainer = styled.div`
   }
 
   @media only screen and (max-width: ${Widths.ExtraSmallScreen}px) {
+    padding: 20px;
     margin-top: 40px;
     margin-left: 0;
   }
@@ -88,12 +88,9 @@ const LinkButton = styled(GatsbyLink)`
   }
 `
 
-console.log('json = ', JSONData)
-
 export default function Home() {
   return (
     <Container>
-
       <Global
         styles={css`
           html {
@@ -102,24 +99,17 @@ export default function Home() {
           }
         `}
       />
-      <Header linkColor={Colors.White}/>
+      <Header linkColor={Colors.White} />
       <Body>
-
-      <LeftContainer>
-        <WelcomeText>
-          Hello.
-        </WelcomeText>
-        <DescriptiveText>
-          Thanks for joining me.
-          Take a peek at what I've been pondering
-        </DescriptiveText>
-        <LinkButton to="/intro">FIRST POST</LinkButton>
-      </LeftContainer>
-      <MiddleContainer>
-        <Avocado />
-      </MiddleContainer>
+        <LeftContainer>
+          <WelcomeText>Hello.</WelcomeText>
+          <DescriptiveText>Thanks for joining me. Take a peek at what I've been pondering</DescriptiveText>
+          <LinkButton to="/intro">FIRST POST</LinkButton>
+        </LeftContainer>
+        <MiddleContainer>
+          <Avocado />
+        </MiddleContainer>
       </Body>
-
     </Container>
   )
 }

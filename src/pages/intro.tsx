@@ -1,54 +1,60 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import { Global, css } from "@emotion/core";
-import { graphql, useStaticQuery } from "gatsby"
-import { StaticImage } from "gatsby-plugin-image"
-import Img from "gatsby-image";
+import { Global, css } from '@emotion/core'
+import { graphql } from 'gatsby'
+import Img from 'gatsby-image'
 
-import { Image } from 'src/components/image'
 import { Colors } from 'src/styles/colors'
 import { Header } from 'src/components/header'
-import YAMLData from "../../content/intro.yaml"
+import { Widths } from 'src/styles/widths'
+import YAMLData from '../../content/intro.yaml'
 
 export const query = graphql`
-  query imagesQuery {
+  query introImagesQuery {
     allContentYaml {
       edges {
         node {
-          sections {
-            image {
-              childImageSharp {
-                fluid {
-                  ...GatsbyImageSharpFluid
-                }
+          images {
+            childImageSharp {
+              fluid {
+                ...GatsbyImageSharpFluid
               }
-            }      
-          }  
+            }
+          }
         }
       }
     }
   }
-`;
-
+`
 
 const Container = styled.div`
   display: flex;
   flex-direction: column;
   padding: 20px 160px;
+
+  @media only screen and (max-width: ${Widths.MediumScreen}px) {
+    padding: 20px 80px;
+  }
+
+  @media only screen and (max-width: ${Widths.ExtraSmallScreen}px) {
+    padding: 20px 20px;
+  }
 `
 const Paper = styled.div`
-  background-color: #F4F4F4;
+  background-color: #f4f4f4;
   align-self: center;
   padding: 20px;
-  border-radius: 10px;
+  border-radius: 4px;
   margin-top: 10px;
+  width: 100%:
 `
 
 const ImageLayout = styled.div`
   display: grid;
-  grid-template-row: 50px;
+  grid-template-rows: 350px;
   grid-template-columns: 1fr 1fr;
   gap: 10px;
+  margin-bottom: 20px;
 `
 
 const Text = styled.span`
@@ -56,9 +62,9 @@ const Text = styled.span`
   font-family: monospace;
   font-size: 16px;
   line-height: 26px;
-`  
+`
 const Title = styled.h1`
-  font-size: 40px;
+  font-size: 32px;
   font-family: monospace;
   font-weight: 500;
   margin: 0 0 10px 0;
@@ -68,33 +74,34 @@ const Title = styled.h1`
 `
 
 const IntroPage = ({ data }) => {
-  const edges = data.allContentYaml.edges[0].node.sections
-  console.log('data = ', edges)
-
-
+  const images = data.allContentYaml.edges[0].node.images
   const { title, sections } = YAMLData
-  console.log('YAMLData = ', title, sections)
+
   return (
     <div>
-    <Global
-      styles={css`
-        html {
-          color: ${Colors.Green500};
-          background-color: ${Colors.White};
-        }
-      `}
-    />
-      <Header linkColor={Colors.Green500}/>
+      <Global
+        styles={css`
+          html {
+            color: ${Colors.Green500};
+            background-color: ${Colors.White};
+          }
+        `}
+      />
+      <Header linkColor={Colors.Green500} />
       <Container>
         <Title>{title}</Title>
-        <Img fluid={edges[0].image.childImageSharp.fluid} style={{maxHeight: '400px'}}/>  
-        {
-          sections.map(({ content }) => (
-            <Paper>
-              <Text>{content}</Text>
-            </Paper>
-          ))
-        }   
+        <ImageLayout>
+          <Img fluid={images[1].childImageSharp.fluid} />
+          <Img fluid={images[0].childImageSharp.fluid} />
+        </ImageLayout>
+        {sections.map(({ content }) => (
+          <Paper>
+            <Text>{content}</Text>
+          </Paper>
+        ))}
+        <Paper>
+          <Text>- Amy from the back of Taco (pictured above)</Text>
+        </Paper>
       </Container>
     </div>
   )

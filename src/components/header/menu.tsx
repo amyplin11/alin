@@ -1,11 +1,10 @@
 import React, { FunctionComponent, useState } from 'react'
 import styled from '@emotion/styled'
-import { Link as GatsbyLink} from 'gatsby'
-import { MenuOutlined } from '@ant-design/icons';
+import { Link as GatsbyLink } from 'gatsby'
+import { MenuOutlined } from '@ant-design/icons'
 
 import { Colors } from '../../styles/colors'
 import { Widths } from '../../styles/widths'
-
 
 const LinksContainer = styled.div`
   display: flex;
@@ -39,46 +38,44 @@ const IconButton = styled.button`
 const MenuItem = styled.div`
   width: 60px;
   height: 28px;
-  
+
   &:hover {
     opacity: 0.4;
     cursor: pointer;
   }
 `
 interface MenuState {
-    isOpen: boolean
+  isOpen: boolean
 }
 
 const MenuContent = styled.div`
-    display: ${(props: MenuState) => props.isOpen ? 'block' : 'none'};
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    padding: 12px 16px;
-    z-index: 1;
+  display: ${(props: MenuState) => (props.isOpen ? 'block' : 'none')};
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  padding: 12px 16px;
+  z-index: 1;
 `
 
 const DropdownMenu = styled.div`
-    position: relative;
-    display: inline-block;
+  position: relative;
+  display: inline-block;
 `
 
 const LinkStyle = {
-  "textDecoration": "underline",
+  textDecoration: 'underline',
 }
 
 interface MenuProps {
-  linkColor: string;
+  linkColor: string
 }
 
-
-export const Menu: FunctionComponent<MenuProps>= ({ linkColor }) => {
+export const Menu: FunctionComponent<MenuProps> = ({ linkColor }) => {
   const [isOpen, setIsOpen] = useState(false)
   return (
     <LinksContainer>
-
-        {/* <DropdownMenu>
+      {/* <DropdownMenu>
             <IconButton onClick={() => setIsOpen(true)}>
                 <MenuOutlined style={{ color: 'white', fontSize: '20px' }}/>
             </IconButton>
@@ -95,9 +92,15 @@ export const Menu: FunctionComponent<MenuProps>= ({ linkColor }) => {
             </MenuContent>
         </DropdownMenu> */}
 
-        <Link linkColor={linkColor} to="/" activeStyle={LinkStyle}>home</Link>
-        {/* <Link linkColor={linkColor}  to="/thoughts" activeStyle={LinkStyle}>thoughts</Link> */}
-        <Link linkColor={linkColor}  to="/intro" activeStyle={LinkStyle}>intro</Link>
+      <Link linkColor={linkColor} to="/" activeStyle={LinkStyle}>
+        home
+      </Link>
+      <Link linkColor={linkColor} to="/squares" activeStyle={LinkStyle}>
+        squares
+      </Link>
+      <Link linkColor={linkColor} to="/intro" activeStyle={LinkStyle}>
+        intro
+      </Link>
     </LinksContainer>
   )
 }
