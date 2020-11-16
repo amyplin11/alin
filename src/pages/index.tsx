@@ -1,16 +1,19 @@
 import React from 'react'
 import styled from '@emotion/styled'
+import { Link as GatsbyLink} from 'gatsby'
+import { Global, css } from "@emotion/core";
 
 import { TypeText } from '../components/test'
 import { Header } from '../components/header'
 import { Avocado } from '../components/fruits'
 import JSONData from '../../content/data.json'
 import { Colors } from '../styles/colors'
+import { Widths } from '../styles/widths'
 
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 0px 20px;
+  background-color: #b2d1c6;
 `
 
 const Body = styled.div`
@@ -21,20 +24,30 @@ const Body = styled.div`
   background-color: ${Colors.Green350};
   height: 100vh;
 
-  @media only screen and (max-width: 600px) {
+  @media only screen and (max-width: ${Widths.MediumScreen}px) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media only screen and (max-width: ${Widths.ExtraSmallScreen}px) {
     grid-template-columns: auto;
   }
 `
   // background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);
 
-const RightContainer = styled.div`
+const LeftContainer = styled.div`
   display: flex;
   align-items: flex-start;
   flex-direction: column;
-  margin-left: 60px;
+  padding: 50px;
+  margin-left: 80px;
 
-  @media only screen and (max-width: 600px) {
+  @media only screen and (max-width: ${Widths.MediumScreen}px) {
+    padding: 0;
+  }
+
+  @media only screen and (max-width: ${Widths.ExtraSmallScreen}px) {
     margin-top: 40px;
+    margin-left: 0;
   }
 `
 
@@ -44,7 +57,7 @@ const MiddleContainer = styled.div`
   align-items: flex-end;
   flex-direction; column;
 
-  @media only screen and (max-width: 600px) {
+  @media only screen and (max-width: ${Widths.SmallScreen}px) {
     margin-top: 20px;
   }
 `
@@ -60,15 +73,39 @@ const DescriptiveText = styled.p`
   font-size: 26px;
 `
 
+const LinkButton = styled(GatsbyLink)`
+  border: 1px solid white;
+  color: white;
+  background-color: transparent;
+  padding: 6px;
+  border-radius: 4px;
+  font-size: 16px;
+  text-decoration: none;
+
+  &:hover {
+    opacity: 0.4;
+    cursor: pointer;
+  }
+`
+
 console.log('json = ', JSONData)
 
 export default function Home() {
   return (
     <Container>
-      <Header />
+
+      <Global
+        styles={css`
+          html {
+            color: white;
+            background-color: ${Colors.Green350};
+          }
+        `}
+      />
+      <Header linkColor={Colors.White}/>
       <Body>
 
-      <RightContainer>
+      <LeftContainer>
         <WelcomeText>
           Hello.
         </WelcomeText>
@@ -76,7 +113,8 @@ export default function Home() {
           Thanks for joining me.
           Take a peek at what I've been pondering
         </DescriptiveText>
-      </RightContainer>
+        <LinkButton to="/intro">FIRST POST</LinkButton>
+      </LeftContainer>
       <MiddleContainer>
         <Avocado />
       </MiddleContainer>

@@ -7,6 +7,7 @@
 module.exports = {
   plugins: [
     `gatsby-plugin-emotion`,
+    'gatsby-plugin-root-import',
     {
       resolve: `gatsby-plugin-s3`,
       options: {
@@ -43,6 +44,31 @@ module.exports = {
           include: /static/ // See below to configure properly
         }
       }
+    },
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
+    `gatsby-transformer-yaml`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `./content`,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-google-gtag`,
+      options: {
+        // You can add multiple tracking ids and a pageview event will be fired for all of them.
+        trackingIds: [
+          "GA-G-M6Q3HZL21B", // Google Analytics / GA
+        ],
+        // This object gets passed directly to the gtag config command
+        // This config will be shared across all trackingIds
+        gtagConfig: {
+          optimize_id: "OPT_CONTAINER_ID",
+          anonymize_ip: true,
+          cookie_expires: 0,
+        },
+      },
     },
   ]
 }
