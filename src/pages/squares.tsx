@@ -82,7 +82,7 @@ const Title = styled.h1`
 const DoubleImage = styled.div`
   display: flex;
   justify-content: center;
-  padding: 60px 0;
+  padding: 70px 0;
 
   @media only screen and (max-width: ${Widths.SmallScreen}px) {
     flex-direction: column;
