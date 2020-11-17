@@ -16,9 +16,6 @@ export const query = graphql`
           sandImages {
             image {
               childImageSharp {
-                fixed(width: 400, height: 500) {
-                  ...GatsbyImageSharpFixed
-                }
                 fluid {
                   ...GatsbyImageSharpFluid
                 }
@@ -46,6 +43,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   padding: 0 160px;
+  min-width: 320px;
 
   @media only screen and (max-width: ${Widths.MediumScreen}px) {
     padding: 0 80px;
@@ -73,26 +71,41 @@ const Title = styled.h1`
   position: absolute;
   font-size: 20px;
   z-index: 1;
-  left: 310px;
+  left: 227px;
   font-weight: 500;
   margin: 0 0 10px 0;
   color: white;
-`
 
-const DoubleImage = styled.div`
-  display: flex;
-  justify-content: center;
-  padding: 70px 0;
-
-  @media only screen and (max-width: ${Widths.SmallScreen}px) {
-    flex-direction: column;
-    align-items: center;
+  @media only screen and (max-width: ${Widths.ExtraSmallScreen}px) {
+    left: 26px;
   }
 `
 
-const PaddedImage = styled.div`
+const DoubleImage = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(297px, 2fr));
+  gap: 10px;
+  padding: 70px 80px;
+
+  @media only screen and (max-width: ${Widths.MediumScreen}px) {
+    padding: 70px 0;
+  }
+`
+
+const PaddedRightImage = styled.div`
+  padding-bottom: 40px;
+
+  @media only screen and (max-width: ${Widths.MediumScreen}px) {
+    padding: 0;
+  }
+`
+
+const PaddedLeftImage = styled.div`
   padding-top: 40px;
-  padding-left: 20px;
+
+  @media only screen and (max-width: ${Widths.MediumScreen}px) {
+    padding: 0;
+  }
 `
 
 const ImageLayover = styled.div`
@@ -156,7 +169,6 @@ const SectionTitle = styled.div`
 const SquaresPage = ({ data }) => {
   const sandImages = data.allSquaresYaml.edges[0].node.sandImages
   const dailyImages = data.allSquaresYaml.edges[1].node.dailyImages
-  console.log('sandImagea = ', data.allSquaresYaml.edges[0])
 
   return (
     <div>
@@ -172,15 +184,17 @@ const SquaresPage = ({ data }) => {
       <Container>
         <DoubleImage>
           <Title>GREAT SAND DUNES, CO</Title>
-          <Img fixed={sandImages[0].image.childImageSharp.fixed} />
-          <PaddedImage>
-            <Img fixed={sandImages[1].image.childImageSharp.fixed} />
-          </PaddedImage>
+          <PaddedRightImage>
+            <Img fluid={sandImages[0].image.childImageSharp.fluid} style={{ minHeight: '500px' }} />
+          </PaddedRightImage>
+          <PaddedLeftImage>
+            <Img fluid={sandImages[1].image.childImageSharp.fluid} style={{ minHeight: '500px' }} />
+          </PaddedLeftImage>
         </DoubleImage>
 
         <Img fluid={sandImages[4].image.childImageSharp.fluid} style={{ maxHeight: '400px' }} />
 
-        <SectionTitle>roadtrip</SectionTitle>
+        <SectionTitle>A pic a day</SectionTitle>
 
         <ImageLayout>
           {dailyImages.map(({ info, title, image }) => (

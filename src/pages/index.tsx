@@ -13,6 +13,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   background-color: #b2d1c6;
+  min-width: 320px;
 `
 
 const Body = styled.div`

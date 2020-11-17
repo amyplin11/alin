@@ -31,6 +31,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   padding: 20px 160px;
+  min-width: 320px;
 
   @media only screen and (max-width: ${Widths.MediumScreen}px) {
     padding: 20px 80px;
