@@ -1,0 +1,1 @@
+export { BlogPostContentType } from './content'

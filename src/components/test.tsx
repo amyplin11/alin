@@ -16,10 +16,9 @@ const blink = keyframes`
 `;
 
 const Container = styled.div`
-    height: 100vh;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
 `
 
 const TypingContainer = styled.div`
@@ -36,7 +35,7 @@ export const TypeText = () =>  {
   return (
       <Container>
           <TypingContainer>
-          This is a typing demo.
+          Food for Thought
           </TypingContainer>
       </Container>
 

@@ -1,0 +1,25 @@
+- sandImages:
+    - image: squares/sand3.jpg
+    - image: squares/sand4.jpg
+    - image: squares/sand2.jpg
+    - image: squares/sand1.jpg
+    - image: squares/sand5.jpg
+- dailyImages:
+    - image: squares/one.jpg
+      title: One
+      info: Zion, Utah
+    - image: squares/two.jpg
+      title: Two
+      info: Bryce Canyon, Utah
+    - image: squares/three.jpg
+      title: Three
+      info: Arches National Park, Utah
+    - image: squares/four_2.jpg
+      title: Four
+      info: Great Sand Dunes, Colorado
+    - image: squares/five.jpg
+      title: Five
+      info: Kansas City, Missouri
+    - image: squares/six.jpg
+      title: Six
+      info: St. Louis, Missouri

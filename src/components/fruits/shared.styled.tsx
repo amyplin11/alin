@@ -18,35 +18,7 @@ export const Container = styled.div`
   position: relative;
   justify-content: center;
 `
-const Eye = styled.div`
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    z-index: 1;
-    background: #fff;
-    border-radius: 50%;
-    animation: ${blink} 3s infinite; 
-`
 
-export const LeftEye = styled(Eye)`
-    left: 76px;
-    top: 110px;
-`
-
-export const RightEye = styled(Eye)`
-    left: 104px;
-    top: 110px;
-`
-
-export const EyeBall = styled.span`
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    margin-left: 5px;
-    margin-top: 5px;
-    background: black;
-    border-radius: 50%;
-`
 export const Shadow = styled.div`
     width: 120px;
     height: 16px;
@@ -56,3 +28,19 @@ export const Shadow = styled.div`
     border-radius: 50%;
     background: #f3f3f3;
 `
+export const Smile = styled.div`
+    top: 47px;
+    border: solid 2px #000;
+    width: 20px;
+    height: 100px;
+    position: absolute;
+    border-color: transparent transparent #000 transparent;
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+    transition: transform 2s;
+
+    ${Container}:hover & {
+        transform: scaleX(3);
+    }
+`
+

@@ -6,7 +6,21 @@
 
 module.exports = {
   plugins: [
+    {
+      resolve: `gatsby-plugin-google-gtag`,
+      options: {
+        trackingIds: [
+          "G-M6Q3HZL21B", // Google Analytics / GA
+        ],
+        gtagConfig: {
+          optimize_id: "OPT_CONTAINER_ID",
+          anonymize_ip: true,
+          cookie_expires: 0,
+        },
+      },
+    },
     `gatsby-plugin-emotion`,
+    'gatsby-plugin-root-import',
     {
       resolve: `gatsby-plugin-s3`,
       options: {
@@ -43,6 +57,15 @@ module.exports = {
           include: /static/ // See below to configure properly
         }
       }
+    },
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
+    `gatsby-transformer-yaml`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `./content`,
+      },
     },
   ]
 }
