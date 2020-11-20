@@ -4,51 +4,41 @@ import { Link as GatsbyLink } from 'gatsby'
 import { Global, css } from '@emotion/core'
 
 import { TypeText } from '../components/test'
-import { Header } from '../components/header'
+import { PageContainer } from '../components/page-container'
 import { Avocado } from '../components/fruits'
 import { Colors } from '../styles/colors'
 import { Widths } from '../styles/widths'
 
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  background-color: #b2d1c6;
-  min-width: 320px;
-`
-
 const Body = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: auto;
   grid-template-rows: auto;
   align-items: center;
   background-color: ${Colors.Green350};
-  height: 90vh;
+  height: 100%;
+  padding-top: 20px;
 
-  @media only screen and (max-width: ${Widths.MediumScreen}px) {
+  @media only screen and (min-width: ${Widths.ExtraSmallScreen}px) {
     grid-template-columns: 1fr 1fr;
   }
 
-  @media only screen and (max-width: ${Widths.ExtraSmallScreen}px) {
-    grid-template-columns: auto;
+  @media only screen and (min-width: ${Widths.MediumScreen}px) {
+    grid-template-columns: 1fr 1fr 1fr;
   }
 `
-// background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);
 
 const LeftContainer = styled.div`
   display: flex;
   align-items: flex-start;
   flex-direction: column;
-  padding: 50px;
-  margin-left: 80px;
+  padding: 0px 50px;
+  margin-left: 0;
 
-  @media only screen and (max-width: ${Widths.MediumScreen}px) {
+  @media only screen and (min-width: ${Widths.SmallScreen}px) {
+    padding: 50px;
     padding: 0;
-  }
-
-  @media only screen and (max-width: ${Widths.ExtraSmallScreen}px) {
-    padding: 20px;
     margin-top: 40px;
-    margin-left: 0;
+    margin-left: 80px;
   }
 `
 
@@ -57,9 +47,10 @@ const MiddleContainer = styled.div`
   justify-content: center;
   align-items: flex-end;
   flex-direction; column;
+  margin-top: 20px;
 
-  @media only screen and (max-width: ${Widths.SmallScreen}px) {
-    margin-top: 20px;
+  @media only screen and (min-width: ${Widths.SmallScreen}px) {
+    margin-top: 0px
   }
 `
 
@@ -91,7 +82,7 @@ const LinkButton = styled(GatsbyLink)`
 
 export default function Home() {
   return (
-    <Container>
+    <PageContainer linkColor={Colors.White}>
       <Global
         styles={css`
           html {
@@ -100,7 +91,7 @@ export default function Home() {
           }
         `}
       />
-      <Header linkColor={Colors.White} />
+
       <Body>
         <LeftContainer>
           <WelcomeText>Hello.</WelcomeText>
@@ -111,6 +102,6 @@ export default function Home() {
           <Avocado />
         </MiddleContainer>
       </Body>
-    </Container>
+    </PageContainer>
   )
 }

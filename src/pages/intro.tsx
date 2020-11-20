@@ -5,7 +5,7 @@ import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
 
 import { Colors } from 'src/styles/colors'
-import { Header } from 'src/components/header'
+import { PageContainer } from 'src/components/page-container'
 import { Widths } from 'src/styles/widths'
 import YAMLData from '../../content/intro.yaml'
 
@@ -30,17 +30,18 @@ export const query = graphql`
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 20px 160px;
+  padding: 20px 20px;
   min-width: 320px;
 
-  @media only screen and (max-width: ${Widths.MediumScreen}px) {
+  @media only screen and (min-width: ${Widths.SmallScreen}px) {
     padding: 20px 80px;
   }
 
-  @media only screen and (max-width: ${Widths.ExtraSmallScreen}px) {
-    padding: 20px 20px;
+  @media only screen and (min-width: ${Widths.MediumScreen}px) {
+    padding: 20px 160px;
   }
 `
+
 const Paper = styled.div`
   background-color: #f4f4f4;
   align-self: center;
@@ -79,7 +80,7 @@ const IntroPage = ({ data }) => {
   const { title, sections } = YAMLData
 
   return (
-    <div>
+    <PageContainer linkColor={Colors.Green500}>
       <Global
         styles={css`
           html {
@@ -88,7 +89,6 @@ const IntroPage = ({ data }) => {
           }
         `}
       />
-      <Header linkColor={Colors.Green500} />
       <Container>
         <Title>{title}</Title>
         <ImageLayout>
@@ -104,7 +104,7 @@ const IntroPage = ({ data }) => {
           <Text>- Amy from the back of Taco (pictured above)</Text>
         </Paper>
       </Container>
-    </div>
+    </PageContainer>
   )
 }
 

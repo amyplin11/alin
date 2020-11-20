@@ -5,7 +5,7 @@ import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
 
 import { Colors } from 'src/styles/colors'
-import { Header } from 'src/components/header'
+import { PageContainer } from 'src/components/page-container'
 import { Widths } from 'src/styles/widths'
 
 export const query = graphql`
@@ -39,21 +39,6 @@ export const query = graphql`
   }
 `
 
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  padding: 0 160px;
-  min-width: 320px;
-
-  @media only screen and (max-width: ${Widths.MediumScreen}px) {
-    padding: 0 80px;
-  }
-
-  @media only screen and (max-width: ${Widths.ExtraSmallScreen}px) {
-    padding: 0 20px;
-  }
-`
-
 const ImageContainer = styled.div`
   position: relative;
   text-align: center;
@@ -66,46 +51,7 @@ const ImageLayout = styled.div`
   grid-template-rows: auto;
   gap: 10px;
   margin-bottom: 40px;
-`
-const Title = styled.h1`
-  position: absolute;
-  font-size: 20px;
-  z-index: 1;
-  left: 227px;
-  font-weight: 500;
-  margin: 0 0 10px 0;
-  color: white;
-
-  @media only screen and (max-width: ${Widths.ExtraSmallScreen}px) {
-    left: 26px;
-  }
-`
-
-const DoubleImage = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(297px, 2fr));
-  gap: 10px;
-  padding: 70px 80px;
-
-  @media only screen and (max-width: ${Widths.MediumScreen}px) {
-    padding: 70px 0;
-  }
-`
-
-const PaddedRightImage = styled.div`
-  padding-bottom: 40px;
-
-  @media only screen and (max-width: ${Widths.MediumScreen}px) {
-    padding: 0;
-  }
-`
-
-const PaddedLeftImage = styled.div`
-  padding-top: 40px;
-
-  @media only screen and (max-width: ${Widths.MediumScreen}px) {
-    padding: 0;
-  }
+  padding: 20px;
 `
 
 const ImageLayover = styled.div`
@@ -159,11 +105,11 @@ const Number = styled.span`
 `
 
 const SectionTitle = styled.div`
-  font-size: 40px;
+  font-size: 20px;
   text-align: center;
   text-transform: uppercase;
-  margin-top: 100px;
-  margin-bottom: 40px;
+  margin-top: 40px;
+  color: black;
 `
 
 const SquaresPage = ({ data }) => {
@@ -171,7 +117,7 @@ const SquaresPage = ({ data }) => {
   const dailyImages = data.allSquaresYaml.edges[1].node.dailyImages
 
   return (
-    <div>
+    <PageContainer linkColor={Colors.Green500}>
       <Global
         styles={css`
           html {
@@ -180,38 +126,23 @@ const SquaresPage = ({ data }) => {
           }
         `}
       />
-      <Header linkColor={Colors.Green500} />
-      <Container>
-        <DoubleImage>
-          <Title>GREAT SAND DUNES, CO</Title>
-          <PaddedRightImage>
-            <Img fluid={sandImages[0].image.childImageSharp.fluid} style={{ minHeight: '500px' }} />
-          </PaddedRightImage>
-          <PaddedLeftImage>
-            <Img fluid={sandImages[1].image.childImageSharp.fluid} style={{ minHeight: '500px' }} />
-          </PaddedLeftImage>
-        </DoubleImage>
+      <SectionTitle>Daily Slice</SectionTitle>
 
-        <Img fluid={sandImages[4].image.childImageSharp.fluid} style={{ maxHeight: '400px' }} />
-
-        <SectionTitle>A pic a day</SectionTitle>
-
-        <ImageLayout>
-          {dailyImages.map(({ info, title, image }) => (
-            <ImageContainer key={title}>
-              <LayoverText>
-                <Number>{title}</Number>
-                {info}
-              </LayoverText>
-              <ImageLayover>
-                <Img fluid={image.childImageSharp.fluid} />
-              </ImageLayover>
-              <LayoverTextContainer></LayoverTextContainer>
-            </ImageContainer>
-          ))}
-        </ImageLayout>
-      </Container>
-    </div>
+      <ImageLayout>
+        {dailyImages.map(({ info, title, image }) => (
+          <ImageContainer key={title}>
+            <LayoverText>
+              <Number>{title}</Number>
+              {info}
+            </LayoverText>
+            <ImageLayover>
+              <Img fluid={image.childImageSharp.fluid} />
+            </ImageLayover>
+            <LayoverTextContainer></LayoverTextContainer>
+          </ImageContainer>
+        ))}
+      </ImageLayout>
+    </PageContainer>
   )
 }
 
