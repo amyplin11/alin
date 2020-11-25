@@ -23,6 +23,7 @@ const Body = styled.div`
   }
 
   @media only screen and (min-width: ${Widths.MediumScreen}px) {
+    padding-top: 120px;
     grid-template-columns: 1fr 1fr 1fr;
   }
 `
@@ -38,7 +39,7 @@ const LeftContainer = styled.div`
     padding: 50px;
     padding: 0;
     margin-top: 40px;
-    margin-left: 80px;
+    margin-left: 170px;
   }
 `
 

@@ -52,6 +52,10 @@ const ImageLayout = styled.div`
   gap: 10px;
   margin-bottom: 40px;
   padding: 20px;
+
+  @media only screen and (min-width: ${Widths.SmallScreen}px) {
+    padding: 20px 80px;
+  }
 `
 
 const ImageLayover = styled.div`
