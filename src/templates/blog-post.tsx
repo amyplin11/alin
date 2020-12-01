@@ -7,18 +7,19 @@ import Img from 'gatsby-image'
 import { Colors } from 'src/styles/colors'
 import { PageContainer } from 'src/components/page-container'
 import { Widths } from 'src/styles/widths'
-import YAMLData from '../../content/intro.yaml'
 
 export const query = graphql`
-  query introImagesQuery {
-    allContentYaml {
-      edges {
-        node {
-          images {
-            childImageSharp {
-              fluid {
-                ...GatsbyImageSharpFluid
-              }
+  query($slug: String!) {
+    markdownRemark(fields: { slug: { eq: $slug } }) {
+      html
+      htmlAst
+      frontmatter {
+        title
+        date(formatString: "MMMM DD, YYYY")
+        images {
+          childImageSharp {
+            fluid(maxWidth: 800) {
+              ...GatsbyImageSharpFluid
             }
           }
         }
@@ -48,7 +49,7 @@ const Paper = styled.div`
   padding: 20px;
   border-radius: 4px;
   margin-top: 10px;
-  width: 100%:
+  width: 100%;
 `
 
 const ImageLayout = styled.div`
@@ -75,9 +76,9 @@ const Title = styled.h1`
   color: white;
 `
 
-const IntroPage = ({ data }) => {
-  const images = data.allContentYaml.edges[0].node.images
-  const { title, sections } = YAMLData
+export default function BlogPost({ data }) {
+  const post = data.markdownRemark
+  const htmlSections = post.htmlAst.children.filter(section => section.type === 'element')
 
   return (
     <PageContainer linkColor={Colors.Green500}>
@@ -90,22 +91,20 @@ const IntroPage = ({ data }) => {
         `}
       />
       <Container>
-        <Title>{title}</Title>
+        <Title>{post.frontmatter.title}</Title>
         <ImageLayout>
-          <Img fluid={images[1].childImageSharp.fluid} />
-          <Img fluid={images[0].childImageSharp.fluid} />
+          <Img fluid={post.frontmatter.images[0].childImageSharp.fluid} />
+          <Img fluid={post.frontmatter.images[1].childImageSharp.fluid} />
         </ImageLayout>
-        {sections.map(({ content }) => (
-          <Paper>
-            <Text>{content}</Text>
-          </Paper>
-        ))}
-        <Paper>
-          <Text>- Amy from the back of Taco (pictured above)</Text>
-        </Paper>
+
+        {htmlSections.map(section => {
+          return (
+            <Paper>
+              <Text>{section.children[0].value}</Text>
+            </Paper>
+          )
+        })}
       </Container>
     </PageContainer>
   )
 }
-
-export default IntroPage

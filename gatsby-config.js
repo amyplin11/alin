@@ -10,10 +10,10 @@ module.exports = {
       resolve: `gatsby-plugin-google-gtag`,
       options: {
         trackingIds: [
-          "G-M6Q3HZL21B", // Google Analytics / GA
+          'G-M6Q3HZL21B', // Google Analytics / GA
         ],
         gtagConfig: {
-          optimize_id: "OPT_CONTAINER_ID",
+          optimize_id: 'OPT_CONTAINER_ID',
           anonymize_ip: true,
           cookie_expires: 0,
         },
@@ -24,7 +24,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-s3`,
       options: {
-        bucketName: "amylin.co.uk",
+        bucketName: 'amylin.co.uk',
       },
     },
     {
@@ -51,12 +51,12 @@ module.exports = {
       },
     },
     {
-      resolve: "gatsby-plugin-react-svg",
+      resolve: 'gatsby-plugin-react-svg',
       options: {
         rule: {
-          include: /static/ // See below to configure properly
-        }
-      }
+          include: /static/, // See below to configure properly
+        },
+      },
     },
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
@@ -67,5 +67,5 @@ module.exports = {
         path: `./content`,
       },
     },
-  ]
+  ],
 }
