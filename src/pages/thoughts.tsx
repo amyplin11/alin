@@ -46,18 +46,18 @@ const Container = styled.div`
 const Square = styled(Link)`
   text-decoration: none;
   color: black;
-  padding: 40px;
+  padding: 20px;
   border: 1px solid ${Colors.Gray100};
   border-radius: 10px;
 
-  @media only screen and (min-width: ${Widths.SmallScreen}px) {
+  @media only screen and (min-width: ${Widths.ExtraSmallScreen}px) {
     padding: 40px;
   }
 `
 
 const Layout = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   grid-template-rows: auto;
   gap: 10px;
   margin-bottom: 40px;

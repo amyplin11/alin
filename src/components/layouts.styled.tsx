@@ -44,7 +44,7 @@ export const RowImageLayout = styled.div`
 export const Picture = styled.div`
   display: grid;
   grid-template-rows: 500px;
-  grid-template-columns: 400px;
+  grid-template-columns: 375px;
   justify-self: center;
   align-self: center;
   margin: 20px 0;

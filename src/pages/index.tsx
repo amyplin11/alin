@@ -16,7 +16,6 @@ const Body = styled.div`
   align-items: center;
   background-color: ${Colors.Green350};
   height: 100%;
-  padding-top: 20px;
 
   @media only screen and (min-width: ${Widths.ExtraSmallScreen}px) {
     grid-template-columns: 1fr 1fr;
@@ -32,8 +31,9 @@ const LeftContainer = styled.div`
   display: flex;
   align-items: flex-start;
   flex-direction: column;
-  padding: 0px 50px;
+  padding: 20px 50px;
   margin-left: 0;
+  margin-top: 30px;
 
   @media only screen and (min-width: ${Widths.SmallScreen}px) {
     padding: 50px;
@@ -48,7 +48,7 @@ const MiddleContainer = styled.div`
   justify-content: center;
   align-items: flex-end;
   flex-direction; column;
-  margin-top: 20px;
+  margin-top: 30px 0;
 
   @media only screen and (min-width: ${Widths.SmallScreen}px) {
     margin-top: 0px
