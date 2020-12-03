@@ -20,6 +20,9 @@ exports.createPages = async ({ graphql, actions }) => {
       allMarkdownRemark {
         edges {
           node {
+            frontmatter {
+              blogType
+            }
             fields {
               slug
             }
@@ -29,11 +32,11 @@ exports.createPages = async ({ graphql, actions }) => {
     }
   `)
 
-  console.log('result.data', result.data)
   result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+    const blogType = node.frontmatter.blogType
     createPage({
       path: node.fields.slug,
-      component: path.resolve(`./src/templates/blog-post.tsx`),
+      component: path.resolve(`./src/templates/${blogType}.tsx`),
       context: {
         // Data passed to context is available
         // in page queries as GraphQL variables.

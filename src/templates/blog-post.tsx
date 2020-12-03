@@ -6,7 +6,7 @@ import Img from 'gatsby-image'
 
 import { Colors } from 'src/styles/colors'
 import { PageContainer } from 'src/components/page-container'
-import { Widths } from 'src/styles/widths'
+import { Container, Paper, RowImageLayout } from 'src/components/layouts.styled'
 
 export const query = graphql`
   query($slug: String!) {
@@ -28,38 +28,6 @@ export const query = graphql`
   }
 `
 
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  padding: 20px 20px;
-  min-width: 320px;
-
-  @media only screen and (min-width: ${Widths.SmallScreen}px) {
-    padding: 20px 80px;
-  }
-
-  @media only screen and (min-width: ${Widths.MediumScreen}px) {
-    padding: 20px 160px;
-  }
-`
-
-const Paper = styled.div`
-  background-color: #f4f4f4;
-  align-self: center;
-  padding: 20px;
-  border-radius: 4px;
-  margin-top: 10px;
-  width: 100%;
-`
-
-const ImageLayout = styled.div`
-  display: grid;
-  grid-template-rows: 350px;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
-  margin-bottom: 20px;
-`
-
 const Text = styled.span`
   color: black;
   font-family: monospace;
@@ -70,7 +38,6 @@ const Title = styled.h1`
   font-size: 32px;
   font-family: monospace;
   font-weight: 500;
-  margin: 0 0 10px 0;
   position: absolute;
   z-index: 1;
   color: white;
@@ -92,10 +59,10 @@ export default function BlogPost({ data }) {
       />
       <Container>
         <Title>{post.frontmatter.title}</Title>
-        <ImageLayout>
+        <RowImageLayout>
           <Img fluid={post.frontmatter.images[0].childImageSharp.fluid} />
           <Img fluid={post.frontmatter.images[1].childImageSharp.fluid} />
-        </ImageLayout>
+        </RowImageLayout>
 
         {htmlSections.map(section => {
           return (

@@ -2,10 +2,8 @@ import React from 'react'
 import { graphql, Link } from 'gatsby'
 import styled from '@emotion/styled'
 import { Global, css } from '@emotion/core'
-import Img from 'gatsby-image'
 
 import { PageContainer } from 'src/components/page-container'
-import { TypeText } from 'src/components/test'
 import { Colors } from '../styles/colors'
 import { Widths } from 'src/styles/widths'
 
@@ -48,15 +46,9 @@ const Container = styled.div`
 const Square = styled(Link)`
   text-decoration: none;
   color: black;
-  padding: 20px;
+  padding: 40px;
   border: 1px solid ${Colors.Gray100};
   border-radius: 10px;
-`
-
-const Text = styled.p`
-  font-family: monospace;
-  font-size: 24px;
-  margin: 0;
 `
 
 const Layout = styled.div`
@@ -65,6 +57,7 @@ const Layout = styled.div`
   grid-template-rows: auto;
   gap: 10px;
   margin-bottom: 40px;
+  margin-top: 20px;
 `
 
 const Title = styled.h1`
@@ -83,8 +76,6 @@ export default function Thoughts({ data }) {
         `}
       />
       <Container>
-        <Text>Food for Thought - {data.allMarkdownRemark.totalCount} Posts</Text>
-
         <Layout>
           {data.allMarkdownRemark.edges.map(({ node }, index) => (
             <Square key={node.id} to={node.fields.slug}>
