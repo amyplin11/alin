@@ -2,12 +2,12 @@ import React from 'react'
 import styled from '@emotion/styled'
 import { Link as GatsbyLink } from 'gatsby'
 import { Global, css } from '@emotion/core'
+import { DoubleRightOutlined } from '@ant-design/icons'
 
-import { TypeText } from '../components/test'
-import { PageContainer } from '../components/page-container'
-import { Avocado } from '../components/fruits'
-import { Colors } from '../styles/colors'
-import { Widths } from '../styles/widths'
+import { PageContainer } from 'src/components/page-container'
+import { Avocado } from 'src/components/fruits'
+import { Colors } from 'src/styles/colors'
+import { Widths } from 'src/styles/widths'
 
 const Body = styled.div`
   display: grid;
@@ -97,7 +97,10 @@ export default function Home() {
         <LeftContainer>
           <WelcomeText>Hello.</WelcomeText>
           <DescriptiveText>Thanks for joining me. Take a peek at what I've been pondering</DescriptiveText>
-          <LinkButton to="/intro">FIRST POST</LinkButton>
+          <LinkButton to="/thoughts">
+            THOUGHTS
+            <DoubleRightOutlined />
+          </LinkButton>
         </LeftContainer>
         <MiddleContainer>
           <Avocado />

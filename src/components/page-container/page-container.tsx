@@ -7,6 +7,7 @@ import { Widths } from '../../styles/widths'
 import MakersMarkWhite from '../../../static/makers-mark-white.svg'
 import MakersMarkGreen from '../../../static/makers-mark-green.svg'
 import { Colors } from '../../styles/colors'
+import { Link as GatsbyLink } from 'gatsby'
 
 const Container = styled.div`
   display: flex;
@@ -64,6 +65,10 @@ const HorizontalLinksContainer = styled.div`
   }
 `
 
+const Link = styled(GatsbyLink)`
+  width: 50px;
+`
+
 interface ResponsiveMenuState {
   isMenuOpen: boolean
   backgroundColor: string
@@ -96,7 +101,7 @@ export const PageContainer: FunctionComponent<HeaderProps> = ({ linkColor, child
   return (
     <Container backgroundColor={backgroundColor} isMenuOpen={isMenuOpen}>
       <Header>
-        {linkColor === Colors.White ? <MakersMarkWhite /> : <MakersMarkGreen />}
+        <Link to="/">{linkColor === Colors.White ? <MakersMarkWhite /> : <MakersMarkGreen />}</Link>
 
         <NameContainer>amy lin</NameContainer>
 

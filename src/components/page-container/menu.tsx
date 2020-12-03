@@ -51,13 +51,13 @@ export const Menu = ({ linkColor }) => (
       </Link>
     </MenuItem>
     <MenuItem>
-      <Link to="/squares" linkColor={linkColor} activeStyle={LinkStyle}>
-        squares
+      <Link to="/thoughts" linkColor={linkColor} activeStyle={LinkStyle}>
+        thoughts
       </Link>
     </MenuItem>
     <MenuItem>
-      <Link to="/intro" linkColor={linkColor} activeStyle={LinkStyle}>
-        intro
+      <Link to="/squares" linkColor={linkColor} activeStyle={LinkStyle}>
+        squares
       </Link>
     </MenuItem>
   </MenuList>
