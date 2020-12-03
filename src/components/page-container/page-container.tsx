@@ -24,7 +24,6 @@ const Header = styled.div`
   grid-template-columns: 1fr 1fr 1fr;
   align-items: center;
   padding: 4px 30px;
-  min-width: 320px;
   z-index: 5;
 `
 
@@ -32,6 +31,7 @@ const NameContainer = styled.div`
   display: flex;
   font-size: 30px;
   justify-content: center;
+  white-space: nowrap;
 
   @media only screen and (min-width: ${Widths.SmallScreen}px) {
     font-size: 46px;
