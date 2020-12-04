@@ -23,6 +23,10 @@ export const query = graphql`
             }
           }
         }
+        sources {
+          title
+          href
+        }
       }
     }
   }
@@ -54,9 +58,8 @@ const Caption = styled.p`
 
 export default function BlogPost({ data }) {
   const post = data.markdownRemark
-  const { images, title, date } = post.frontmatter
+  const { images, title, date, sources } = post.frontmatter
   const htmlSections = post.htmlAst.children.filter(section => section.type === 'element')
-
   const startSections = htmlSections.slice(0, 2)
   const endSections = htmlSections.slice(2)
 
@@ -104,6 +107,17 @@ export default function BlogPost({ data }) {
           <Img fluid={images[5].childImageSharp.fluid} />
           <Img fluid={images[6].childImageSharp.fluid} />
         </RowImageLayout>
+
+        <Paper>
+          <Text>Sources:</Text>
+          {sources.map(({ title, href }) => (
+            <p>
+              <a target="_blank" href={href}>
+                {title} [{href}]
+              </a>
+            </p>
+          ))}
+        </Paper>
       </Container>
     </PageContainer>
   )
