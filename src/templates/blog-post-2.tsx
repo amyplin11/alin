@@ -108,16 +108,14 @@ export default function BlogPost({ data }) {
           <Img fluid={images[6].childImageSharp.fluid} />
         </RowImageLayout>
 
-        <Paper>
-          <Text>Sources:</Text>
-          {sources.map(({ title, href }) => (
-            <p>
-              <a target="_blank" href={href}>
-                {title} [{href}]
-              </a>
-            </p>
-          ))}
-        </Paper>
+        <Text>Sources:</Text>
+        {sources.map(({ title, href }) => (
+          <p>
+            <a target="_blank" href={href}>
+              {title} [{href}]
+            </a>
+          </p>
+        ))}
       </Container>
     </PageContainer>
   )
