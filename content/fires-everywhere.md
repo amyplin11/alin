@@ -13,6 +13,12 @@ images:
   ]
 description: 'a reflection of the wildfires in Oregon and California'
 blogType: 'blog-post-2'
+sources: [{title: 'Beachie Creek Fire', href: 'https://inciweb.nwcg.gov/incident/7001/'},
+{title: 'How a 10-acre fire became one of the most devastating wildfires in Oregon history', href: 'https://www.kgw.com/article/news/investigations/beachie-creek-devastating-wildfires-oregon-history/283-d5f85ea2-9aee-4480-b486-f35027c82458'},
+
+{title: 'Why Does California Have So Many Wildfires?', href: 'https://www.nytimes.com/article/why-does-california-have-wildfires.html'},
+
+{title: 'List of California wildfires', href: 'https://en.wikipedia.org/wiki/List_of_California_wildfires'} ]
 ---
 
 I was at my mom's house in Salem, Oregon mid-September when I heard gusts of wind clashing against the trees. These 45 mph hour winds blew over a thick haze over the whole town that diminished the sun to a small and blurred flaming dot, causing a shadowy cast mid-day. Naively, I thought the air quality was the worst we were going to get and I was hoping that the wind would keep carrying it West and away from the town. I've never seen a haze so thick and present before. My only experience with any forrest fire haze was in SF 2 years ago; you could smell a hint of smoke in the air that caused an N95 mask shortage and the sun gleamed a burnt orange in the sky, but you couldn't see the smoke on the street. This time, I could barely see past the house next door, let alone down the street.
