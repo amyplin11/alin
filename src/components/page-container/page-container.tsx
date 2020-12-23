@@ -5,7 +5,7 @@ import { MenuOutlined, CloseOutlined } from '@ant-design/icons'
 import { Menu } from './menu'
 import { Widths } from '../../styles/widths'
 import MakersMarkWhite from '../../../static/makers-mark-white.svg'
-import MakersMarkGreen from '../../../static/makers-mark-green.svg'
+import MakersMarkGray from '../../../static/makers-mark-gray.svg'
 import { Colors } from '../../styles/colors'
 import { Link as GatsbyLink } from 'gatsby'
 
@@ -28,14 +28,14 @@ const Header = styled.div`
 `
 
 const NameContainer = styled.div`
+  letter-spacing: 6px;
+  font-family: verdana;
   display: flex;
   font-size: 30px;
   justify-content: center;
   white-space: nowrap;
-
-  @media only screen and (min-width: ${Widths.SmallScreen}px) {
-    font-size: 46px;
-  }
+  text-transform: uppercase;
+  color: ${({ linkColor }) => linkColor};
 `
 
 const IconButton = styled.button`
@@ -96,14 +96,14 @@ interface HeaderProps {
 export const PageContainer: FunctionComponent<HeaderProps> = ({ linkColor, children }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
-  const backgroundColor = linkColor === Colors.White ? Colors.Green350 : Colors.White
+  const backgroundColor = linkColor === Colors.White ? Colors.Green100 : Colors.White
 
   return (
     <Container backgroundColor={backgroundColor} isMenuOpen={isMenuOpen}>
       <Header>
-        <Link to="/">{linkColor === Colors.White ? <MakersMarkWhite /> : <MakersMarkGreen />}</Link>
+        <Link to="/">{linkColor === Colors.White ? <MakersMarkWhite /> : <MakersMarkGray />}</Link>
 
-        <NameContainer>amy lin</NameContainer>
+        <NameContainer linkColor={linkColor}>amy lin</NameContainer>
 
         <IconButton
           onClick={() => {

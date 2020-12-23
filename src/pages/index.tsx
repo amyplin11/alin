@@ -14,7 +14,7 @@ const Body = styled.div`
   grid-template-columns: auto;
   grid-template-rows: auto;
   align-items: center;
-  background-color: ${Colors.Green350};
+  background-color: ${Colors.Green100};
   height: 100%;
 
   @media only screen and (min-width: ${Widths.ExtraSmallScreen}px) {
@@ -32,8 +32,7 @@ const LeftContainer = styled.div`
   align-items: flex-start;
   flex-direction: column;
   padding: 20px 50px;
-  margin-left: 0;
-  margin-top: 30px;
+  margin: 30px 0;
 
   @media only screen and (min-width: ${Widths.SmallScreen}px) {
     padding: 50px;
@@ -48,7 +47,7 @@ const MiddleContainer = styled.div`
   justify-content: center;
   align-items: flex-end;
   flex-direction; column;
-  margin-top: 30px 0;
+  margin: 30px 0;
 
   @media only screen and (min-width: ${Widths.SmallScreen}px) {
     margin-top: 0px
@@ -88,7 +87,7 @@ export default function Home() {
         styles={css`
           html {
             color: white;
-            background-color: ${Colors.Green350};
+            background-color: ${Colors.Green100};
           }
         `}
       />

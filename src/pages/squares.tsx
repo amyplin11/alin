@@ -55,7 +55,7 @@ const Container = styled.div`
 
 const Layout = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   grid-template-rows: auto;
   gap: 20px;
 `
@@ -111,31 +111,38 @@ const Number = styled.span`
   padding: 10px;
 `
 
-const SectionTitle = styled.div`
-  font-size: 20px;
+const SectionTitle = styled.h2`
+  color: ${Colors.Gray400};
+`
+
+const SectionDescription = styled.p`
+  color: ${Colors.Gray300};
+`
+
+const Section = styled.div`
   margin-top: 40px;
   margin-bottom: 20px;
-  color: black;
 `
 
 const SquaresPage = ({ data }) => {
   const dailyImages = data.allSquaresYaml.edges[1].node.dailyImages
 
   return (
-    <PageContainer linkColor={Colors.Green500}>
+    <PageContainer linkColor={Colors.Gray200}>
       <Global
         styles={css`
           html {
-            color: ${Colors.Green500};
+            color: ${Colors.Gray300};
             background-color: ${Colors.White};
           }
         `}
       />
 
       <Container>
-        <SectionTitle>
-          <h2>DAILY SLICE</h2>a picture a day on my roadtrip
-        </SectionTitle>
+        <Section>
+          <SectionTitle>DAILY SLICE</SectionTitle>
+          <SectionDescription>a picture a day on my roadtrip</SectionDescription>
+        </Section>
 
         <Layout>
           {dailyImages.map(({ info, title, image }) => (
