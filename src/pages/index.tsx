@@ -62,7 +62,7 @@ const WelcomeText = styled.p`
 
 const DescriptiveText = styled.p`
   font-weight: 400;
-  font-size: 26px;
+  font-size: 22px;
 `
 
 const LinkButton = styled(GatsbyLink)`

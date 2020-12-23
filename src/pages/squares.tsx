@@ -55,7 +55,7 @@ const Container = styled.div`
 
 const Layout = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
   grid-template-rows: auto;
   gap: 20px;
 `
@@ -120,7 +120,6 @@ const SectionDescription = styled.p`
 `
 
 const Section = styled.div`
-  margin-top: 40px;
   margin-bottom: 20px;
 `
 
