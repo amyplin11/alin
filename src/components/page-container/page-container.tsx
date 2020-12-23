@@ -23,19 +23,27 @@ const Header = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   align-items: center;
-  padding: 4px 30px;
+  padding: 4px 20px;
   z-index: 5;
+
+  @media only screen and (min-width: ${Widths.SmallScreen}px) {
+    padding: 4px 30px;
+  }
 `
 
 const NameContainer = styled.div`
   letter-spacing: 6px;
   font-family: verdana;
   display: flex;
-  font-size: 30px;
+  font-size: 24px;
   justify-content: center;
   white-space: nowrap;
   text-transform: uppercase;
   color: ${({ linkColor }) => linkColor};
+
+  @media only screen and (min-width: ${Widths.SmallScreen}px) {
+    font-size: 30px;
+  }
 `
 
 const IconButton = styled.button`
