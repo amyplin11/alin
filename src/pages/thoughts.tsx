@@ -45,7 +45,7 @@ const Container = styled.div`
 
 const Square = styled(Link)`
   text-decoration: none;
-  color: black;
+  color: ${Colors.Gray300};
   padding: 20px;
   border: 1px solid ${Colors.Gray100};
   border-radius: 10px;
@@ -66,15 +66,16 @@ const Layout = styled.div`
 
 const Title = styled.h1`
   font-style: italic;
+  color: ${Colors.Gray400};
 `
 
 export default function Thoughts({ data }) {
   return (
-    <PageContainer linkColor={Colors.Green500}>
+    <PageContainer linkColor={Colors.Gray200}>
       <Global
         styles={css`
           html {
-            color: ${Colors.Green500};
+            color: ${Colors.Gray200};
             background-color: ${Colors.White};
           }
         `}

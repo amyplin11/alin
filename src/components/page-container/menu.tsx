@@ -1,8 +1,8 @@
-import React, { FunctionComponent, useState, useRef } from 'react'
+import React, { FunctionComponent } from 'react'
 import styled from '@emotion/styled'
 import { Link as GatsbyLink } from 'gatsby'
 
-import { Widths } from '../../styles/widths'
+import { Widths } from 'src/styles/widths'
 
 const Link = styled(GatsbyLink)`
   text-decoration: none;
@@ -43,7 +43,7 @@ interface MenuProps {
   linkColor: string
 }
 
-export const Menu = ({ linkColor }) => (
+export const Menu: FunctionComponent<MenuProps> = ({ linkColor }) => (
   <MenuList>
     <MenuItem>
       <Link to="/" linkColor={linkColor} activeStyle={LinkStyle}>
