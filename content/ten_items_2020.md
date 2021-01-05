@@ -39,7 +39,7 @@ Last year I attempted to purchase only 10 items of clothing - I ended up purchas
 7. **Nordstrom Sweater**: 1901 The Statement Cotton Blend Sweater (Big Girl)
 8. **Free People Tank Top:** Happiness Runs Crop
 9. **Aritzia white button up:** Wilfred Boyfriend Button-Up Shirt
-10. **Levis Grey Shirt**
+10. **Levis Grey T Shirt:** Surf Tee
 11. **Aritzia Wilfred Turtleneck:** Wilfred ONLY CROPPED TURTLENECK
 12. **Arizia T Shirt:** Wilfred Free Weekend T Shirt
 13. **Madewell Flower Sweater:** Floral Intarsia Pullover Sweater
