@@ -5,7 +5,7 @@ import { MenuOutlined, CloseOutlined } from '@ant-design/icons'
 import { Menu } from './menu'
 import { Widths } from '../../styles/widths'
 import MakersMarkWhite from '../../../static/makers-mark-white.svg'
-import MakersMarkGray from '../../../static/makers-mark-gray.svg'
+import MakersMarkGreen from '../../../static/makers-mark-green.svg'
 import { Colors } from '../../styles/colors'
 import { Link as GatsbyLink } from 'gatsby'
 
@@ -109,15 +109,11 @@ export const PageContainer: FunctionComponent<HeaderProps> = ({ linkColor, child
   return (
     <Container backgroundColor={backgroundColor} isMenuOpen={isMenuOpen}>
       <Header>
-        <Link to="/">{linkColor === Colors.White ? <MakersMarkWhite /> : <MakersMarkGray />}</Link>
+        <Link to="/">{linkColor === Colors.White ? <MakersMarkWhite /> : <MakersMarkGreen />}</Link>
 
         <NameContainer linkColor={linkColor}>amy lin</NameContainer>
 
-        <IconButton
-          onClick={() => {
-            setIsMenuOpen(!isMenuOpen)
-          }}
-        >
+        <IconButton onClick={() => setIsMenuOpen(!isMenuOpen)}>
           {isMenuOpen ? (
             <CloseOutlined style={{ color: linkColor, fontWeight: 'bold', fontSize: '26px' }} />
           ) : (
