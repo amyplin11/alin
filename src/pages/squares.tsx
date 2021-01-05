@@ -55,9 +55,13 @@ const Container = styled.div`
 
 const Layout = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   grid-template-rows: auto;
   gap: 20px;
+
+  @media only screen and (min-width: ${Widths.MediumScreen}px) {
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  }
 `
 
 const ImageLayover = styled.div`
