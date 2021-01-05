@@ -75,7 +75,7 @@ const Title = styled.h1`
 
 export default function Thoughts({ data }) {
   return (
-    <PageContainer linkColor={Colors.Gray200}>
+    <PageContainer linkColor={Colors.Green500}>
       <Global
         styles={css`
           html {

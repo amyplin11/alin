@@ -24,7 +24,7 @@ blogType: 'blog-post-plain-images'
 sources: []
 ---
 
-Last year I attempted to purchase only 10 items of clothing - I ended up purchasing 14 items (I get weak in December lol). This goal/limit forced me to really debate internally before I bought an item, but each item I ended up with I genuinely enjoy!
+Last year I attempted to purchase only 10 items of clothing. I ended up purchasing 14 items (I get weak in December lol) but this goal/limit forced me to think twice before each purchase and confirm that I really love what I'm about to buy.
 <br />
 <br />
 
