@@ -36,9 +36,13 @@ export const ImageLayout = styled.div`
 export const RowImageLayout = styled.div`
   display: grid;
   grid-template-rows: 500px;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 10px;
   margin: 20px 0;
+
+  @media only screen and (min-width: ${Widths.MediumScreen}px) {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
 `
 
 export const Picture = styled.div`
