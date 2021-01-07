@@ -131,7 +131,7 @@ const SquaresPage = ({ data }) => {
   const dailyImages = data.allSquaresYaml.edges[1].node.dailyImages
 
   return (
-    <PageContainer linkColor={Colors.Gray200}>
+    <PageContainer linkColor={Colors.Green500}>
       <Global
         styles={css`
           html {

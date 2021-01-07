@@ -5,7 +5,8 @@ import { graphql } from 'gatsby'
 
 import { Colors } from 'src/styles/colors'
 import { PageContainer } from 'src/components/page-container'
-import { Container, Paper, RowImageLayout } from 'src/components/layouts.styled'
+import { Container, Paper } from 'src/components/layouts.styled'
+import { Widths } from 'src/styles/widths'
 
 export const query = graphql`
   query($slug: String!) {
@@ -37,11 +38,15 @@ const Text = styled.span`
   line-height: 26px;
 `
 const Title = styled.h1`
-  font-size: 40px;
+  font-size: 30px;
   font-family: monospace;
   font-weight: 500;
   color: black;
   z-index: 1;
+
+  @media only screen and (min-width: ${Widths.SmallScreen}px) {
+    font-size: 40px;
+  }
 `
 
 export default function BlogPost({ data }) {
@@ -61,23 +66,19 @@ export default function BlogPost({ data }) {
       />
       <Container>
         <Title>{title}</Title>
-        {/* <RowImageLayout>
-          <Img fluid={post.frontmatter.images[0].childImageSharp.fluid} />
-          <Img fluid={post.frontmatter.images[1].childImageSharp.fluid} />
-        </RowImageLayout> */}
 
         <Paper>
           <Text dangerouslySetInnerHTML={{ __html: post.html }} />
-        </Paper>
 
-        <Text>Sources:</Text>
-        {sources.map(({ title, href }) => (
-          <p>
-            <a target="_blank" href={href}>
-              {title} [{href}]
-            </a>
-          </p>
-        ))}
+          <Text>Sources:</Text>
+          {sources.map(({ title, href }) => (
+            <p>
+              <a target="_blank" href={href}>
+                {title} [{href}]
+              </a>
+            </p>
+          ))}
+        </Paper>
       </Container>
     </PageContainer>
   )
