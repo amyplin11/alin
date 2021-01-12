@@ -2,7 +2,6 @@ import React from 'react'
 import styled from '@emotion/styled'
 import { Global, css } from '@emotion/core'
 import { graphql } from 'gatsby'
-import Img from 'gatsby-image'
 
 import { Colors } from 'src/styles/colors'
 import { PageContainer } from 'src/components/page-container'
@@ -60,8 +59,8 @@ export default function BlogPost({ data }) {
       <Container>
         <Title>{post.frontmatter.title}</Title>
         <RowImageLayout>
-          <Img fluid={post.frontmatter.images[0].childImageSharp.fluid} />
-          <Img fluid={post.frontmatter.images[1].childImageSharp.fluid} />
+          {/* <Img fluid={post.frontmatter.images[0].childImageSharp.fluid} /> */}
+          {/* <Img fluid={post.frontmatter.images[1].childImageSharp.fluid} /> */}
         </RowImageLayout>
 
         {htmlSections.map(section => {

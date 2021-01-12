@@ -3,10 +3,10 @@ import styled from '@emotion/styled'
 import { MenuOutlined, CloseOutlined } from '@ant-design/icons'
 
 import { Menu } from './menu'
-import { Widths } from '../../styles/widths'
+import { Widths } from 'src/styles/widths'
 import MakersMarkWhite from '../../../static/makers-mark-white.svg'
 import MakersMarkGreen from '../../../static/makers-mark-green.svg'
-import { Colors } from '../../styles/colors'
+import { Colors } from 'src/styles/colors'
 import { Link as GatsbyLink } from 'gatsby'
 
 const Container = styled.div`

@@ -6,7 +6,8 @@ import Img from 'gatsby-image'
 
 import { Colors } from 'src/styles/colors'
 import { PageContainer } from 'src/components/page-container'
-import { Container, Paper, ImageLayout, Picture, RowImageLayout } from 'src/components/layouts.styled'
+import { Container, Paper, Picture, RowImageLayout } from 'src/components/layouts.styled'
+import { SourceLink } from 'src/components/source-link.styled'
 
 export const query = graphql`
   query($slug: String!) {
@@ -111,9 +112,9 @@ export default function BlogPost({ data }) {
         <Text>Sources:</Text>
         {sources.map(({ title, href }) => (
           <p>
-            <a target="_blank" href={href}>
-              {title} [{href}]
-            </a>
+            <SourceLink target="_blank" href={href}>
+              {title} ({href})
+            </SourceLink>
           </p>
         ))}
       </Container>
