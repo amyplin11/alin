@@ -2,7 +2,7 @@
 title: "CC1: What's the Problem?"
 date: '2021-01-06'
 images: []
-description: 'A first look at climate change'
+description: 'An intro to climate change'
 blogType: 'blog-post-plain'
 sources:
   [

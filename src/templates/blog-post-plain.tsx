@@ -6,6 +6,7 @@ import { graphql } from 'gatsby'
 import { Colors } from 'src/styles/colors'
 import { PageContainer } from 'src/components/page-container'
 import { Container, Paper } from 'src/components/layouts.styled'
+import { SourceLink } from 'src/components/source-link.styled'
 import { Widths } from 'src/styles/widths'
 
 export const query = graphql`
@@ -37,6 +38,7 @@ const Text = styled.span`
   font-size: 16px;
   line-height: 26px;
 `
+
 const Title = styled.h1`
   font-size: 30px;
   font-family: monospace;
@@ -51,7 +53,6 @@ const Title = styled.h1`
 
 export default function BlogPost({ data }) {
   const post = data.markdownRemark
-  console.log('post= ', post)
   const { title, sources } = post.frontmatter
 
   return (
@@ -70,14 +71,18 @@ export default function BlogPost({ data }) {
         <Paper>
           <Text dangerouslySetInnerHTML={{ __html: post.html }} />
 
-          <Text>Sources:</Text>
-          {sources.map(({ title, href }) => (
-            <p>
-              <a target="_blank" href={href}>
-                {title} [{href}]
-              </a>
-            </p>
-          ))}
+          <b>
+            <Text>Sources:</Text>
+          </b>
+          <div>
+            {sources.map(({ title, href }) => (
+              <p>
+                <SourceLink target="_blank" href={href}>
+                  {title} ({href})
+                </SourceLink>
+              </p>
+            ))}
+          </div>
         </Paper>
       </Container>
     </PageContainer>

@@ -44,7 +44,6 @@ const Title = styled.h1`
 export default function BlogPost({ data }) {
   const post = data.markdownRemark
   const { title, images } = post.frontmatter
-  console.log('post= ', images)
 
   return (
     <PageContainer linkColor={Colors.Green500}>
@@ -60,7 +59,6 @@ export default function BlogPost({ data }) {
         <Title>{title}</Title>
         <Text dangerouslySetInnerHTML={{ __html: post.html }} />
         <RowImageLayout>
-          {/* <Img fluid={images[0].childImageSharp.fluid} /> */}
           {images.map(image => {
             return <Img fluid={image.childImageSharp.fluid} />
           })}
