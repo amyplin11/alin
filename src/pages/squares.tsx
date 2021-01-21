@@ -115,20 +115,31 @@ const Number = styled.span`
   padding: 10px;
 `
 
-const SectionTitle = styled.h2`
-  color: ${Colors.Gray400};
+const VideoContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+
+  @media only screen and (min-width: ${Widths.SmallScreen}px) {
+    padding: 40px;
+  }
 `
 
-const SectionDescription = styled.p`
-  color: ${Colors.Gray300};
+const DescriptionText = styled.p`
+  color: black;
 `
-
-const Section = styled.div`
-  margin-bottom: 20px;
+const Description = styled.p`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `
 
 const SquaresPage = ({ data }) => {
   const dailyImages = data.allSquaresYaml.edges[1].node.dailyImages
+  const videoSrcURL = 'https://www.youtube.com/embed/lXLD2RPrp6A'
+  const videoTitle = 'ROAD TRIP 2020'
 
   return (
     <PageContainer linkColor={Colors.Green500}>
@@ -142,10 +153,24 @@ const SquaresPage = ({ data }) => {
       />
 
       <Container>
-        <Section>
-          <SectionTitle>DAILY SLICE</SectionTitle>
-          <SectionDescription>a picture a day on my roadtrip</SectionDescription>
-        </Section>
+        <VideoContainer>
+          <iframe
+            width="590"
+            height="345"
+            src={videoSrcURL}
+            title={videoTitle}
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </VideoContainer>
+
+        <Description>
+          <DescriptionText>
+            At the end of year in 2020, I took a little road trip from San Jose, California to Miami, Florida and back.
+          </DescriptionText>
+          <DescriptionText>Here's a snap a day during those 5 weeks:</DescriptionText>
+        </Description>
 
         <Layout>
           {dailyImages.map(({ info, title, image }) => (

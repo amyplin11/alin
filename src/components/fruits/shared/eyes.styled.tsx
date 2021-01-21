@@ -10,28 +10,28 @@ const blink = keyframes`
     }
 `
 interface EyeProps {
-    left: number,
-    top: number
+  left: number
+  top: number
 }
 
 export const Eye = styled.div`
-    left: ${(props: EyeProps) => `${props.left}px`};
-    top: ${(props: EyeProps) => `${props.top}px`};
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    z-index: 1;
-    background: #fff;
-    border-radius: 50%;
-    animation: ${blink} 3s infinite; 
+  left: ${(props: EyeProps) => `${props.left}px`};
+  top: ${(props: EyeProps) => `${props.top}px`};
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  z-index: 1;
+  background: #fff;
+  border-radius: 50%;
+  animation: ${blink} 3s infinite;
 `
 
 export const EyeBall = styled.span`
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    margin-left: 5px;
-    margin-top: 5px;
-    background: black;
-    border-radius: 50%;
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  margin-left: 5px;
+  margin-top: 5px;
+  background: black;
+  border-radius: 50%;
 `

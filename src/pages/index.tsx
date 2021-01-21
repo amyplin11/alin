@@ -5,7 +5,7 @@ import { Global, css } from '@emotion/core'
 import { DoubleRightOutlined } from '@ant-design/icons'
 
 import { PageContainer } from 'src/components/page-container'
-import { Avocado } from 'src/components/fruits'
+import { Avocado, Blueberry } from 'src/components/fruits'
 import { Colors } from 'src/styles/colors'
 import { Widths } from 'src/styles/widths'
 
@@ -50,7 +50,7 @@ const MiddleContainer = styled.div`
   margin: 30px 0;
 
   @media only screen and (min-width: ${Widths.SmallScreen}px) {
-    margin-top: 0px
+    margin: 0px
   }
 `
 
@@ -103,6 +103,7 @@ export default function Home() {
         </LeftContainer>
         <MiddleContainer>
           <Avocado />
+          <Blueberry />
         </MiddleContainer>
       </Body>
     </PageContainer>

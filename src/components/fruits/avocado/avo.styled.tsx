@@ -1,14 +1,6 @@
 import styled from '@emotion/styled'
 import { Colors } from 'src/styles/colors'
 
-export const Container = styled.div`
-  display: flex;
-  width: 200px;
-  height: 220px;
-  position: relative;
-  justify-content: center;
-`
-
 export const BottomAvo = styled.div`
   position: absolute;
   background: ${Colors.Green400};
@@ -50,29 +42,4 @@ export const Pit = styled.div`
 
   transform-origin: left top;
   transition: transform 3s;
-`
-export const Shadow = styled.div`
-  width: 120px;
-  height: 16px;
-  top: 228px;
-  opacity: 0.2;
-  position: absolute;
-  border-radius: 50%;
-  background: #f3f3f3;
-`
-
-export const Smile = styled.div`
-  top: 47px;
-  border: solid 2px #000;
-  width: 20px;
-  height: 100px;
-  position: absolute;
-  border-color: transparent transparent #000 transparent;
-  border-bottom-left-radius: 50%;
-  border-bottom-right-radius: 50%;
-  transition: transform 2s;
-
-  ${Container}:hover & {
-    transform: scaleX(3);
-  }
 `
