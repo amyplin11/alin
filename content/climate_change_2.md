@@ -2,7 +2,7 @@
 title: 'CC2: IPCC 1.5°C'
 date: '2021-01-11'
 images: []
-description: 'A look at what 1.5°C means'
+description: 'a look at 1.5°C'
 blogType: 'blog-post-plain'
 sources:
   [

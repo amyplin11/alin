@@ -1,23 +1,23 @@
 import React from 'react'
-import { Container, BottomAvo, TopAvo, InnerLayer, Pit, Shadow } from './avo.styled'
-import { EyeBall, Eye } from '../shared'
+import { BottomAvo, TopAvo, InnerLayer, Pit } from './avo.styled'
+import { Container, EyeBall, Eye, Shadow } from '../shared'
 
-export const Avocado = () => {
+export const Avocado = ({ shouldAnimate }: { shouldAnimate: boolean }) => {
   return (
-    <Container>
+    <Container width={180}>
       <TopAvo />
       <BottomAvo />
       <InnerLayer />
       <Pit />
-      <Eye left={76} top={110}>
+      <Eye left={66} top={110}>
         <EyeBall />
       </Eye>
 
-      <Eye left={104} top={110}>
+      <Eye left={96} top={110}>
         <EyeBall />
       </Eye>
 
-      <Shadow />
+      <Shadow width={120} />
     </Container>
   )
 }

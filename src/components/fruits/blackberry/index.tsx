@@ -1,10 +1,10 @@
 import React from 'react'
-import { Container, Shadow, BodyBall } from './blackberry.styled'
-import { EyeBall, Eye } from '../shared'
+import { BodyBall } from './blackberry.styled'
+import { Container, EyeBall, Eye, Shadow } from '../shared'
 
 export const Blackberry = () => {
   return (
-    <Container>
+    <Container width={100}>
       <BodyBall left={120} top={20} />
       <BodyBall left={60} top={20} />
       <BodyBall left={0} top={20} />
@@ -22,7 +22,7 @@ export const Blackberry = () => {
         <EyeBall />
       </Eye>
 
-      <Shadow />
+      <Shadow width={60} />
     </Container>
   )
 }

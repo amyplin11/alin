@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from 'react'
 import styled from '@emotion/styled'
 import { Link as GatsbyLink } from 'gatsby'
+import { InstagramOutlined } from '@ant-design/icons'
 
 import { Widths } from 'src/styles/widths'
 
@@ -35,6 +36,8 @@ const MenuList = styled.ul`
   }
 `
 
+const ButtonLink = styled.a``
+
 const LinkStyle = {
   textDecoration: 'underline',
 }
@@ -59,6 +62,11 @@ export const Menu: FunctionComponent<MenuProps> = ({ linkColor }) => (
       <Link to="/squares" linkColor={linkColor} activeStyle={LinkStyle}>
         squares
       </Link>
+    </MenuItem>
+    <MenuItem>
+      <ButtonLink href="https://www.instagram.com/lildabbler/" target="_blank">
+        <InstagramOutlined style={{ color: linkColor, fontWeight: 'bold', fontSize: '26px' }} />
+      </ButtonLink>
     </MenuItem>
   </MenuList>
 )

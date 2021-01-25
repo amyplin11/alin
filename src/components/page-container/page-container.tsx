@@ -39,7 +39,7 @@ const NameContainer = styled.div`
   justify-content: center;
   white-space: nowrap;
   text-transform: uppercase;
-  color: ${({ linkColor }) => linkColor};
+  color: ${({ linkColor }: { linkColor: string }) => linkColor};
 
   @media only screen and (min-width: ${Widths.SmallScreen}px) {
     font-size: 30px;

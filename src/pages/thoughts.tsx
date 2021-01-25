@@ -86,7 +86,7 @@ export default function Thoughts({ data }) {
       />
       <Container>
         <Layout>
-          {data.allMarkdownRemark.edges.map(({ node }, index) => (
+          {data.allMarkdownRemark.edges.map(({ node }) => (
             <Square key={node.id} to={node.fields.slug}>
               <Title>{node.frontmatter.title}</Title>
               <p>{node.frontmatter.description}</p>
