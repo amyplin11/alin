@@ -10,17 +10,6 @@ export const BodyBall = styled.div`
   top: 120px;
 `
 
-export const TriangleUp = styled.div`
-  position: absolute;
-  width: 0;
-  height: 110px;
-  left: 10px;
-  z-index: 2;
-  border-left: 14px solid transparent;
-  border-right: 14px solid transparent;
-  border-bottom: 14px solid ${Colors.Green400};
-`
-
 interface PositionProps {
   left?: number
   top?: number

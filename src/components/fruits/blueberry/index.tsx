@@ -1,10 +1,10 @@
 import React from 'react'
-import { BodyBall, TriangleUp, TriangleDown } from './blueberry.styled'
-import { Container, EyeBall, Eye, Shadow } from '../shared'
+import { BodyBall, TriangleDown } from './blueberry.styled'
+import { AnimationContainer, EyeBall, Eye, Shadow } from '../shared'
 
-export const Blueberry = () => {
+export const Blueberry = ({ shouldAnimate }: { shouldAnimate: boolean }) => {
   return (
-    <Container width={100}>
+    <AnimationContainer width={100} shouldAnimate={shouldAnimate}>
       <TriangleDown left={20} top={122} />
       <TriangleDown left={36} top={120} />
       <TriangleDown left={50} top={122} />
@@ -20,6 +20,6 @@ export const Blueberry = () => {
       </Eye>
 
       <Shadow width={60} />
-    </Container>
+    </AnimationContainer>
   )
 }

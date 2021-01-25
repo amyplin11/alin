@@ -1,4 +1,20 @@
 import styled from '@emotion/styled'
+import { css, keyframes } from '@emotion/core'
+
+const grow = keyframes`
+    0% {
+        display: none;
+        opacity: 0;
+    }
+    1% {
+        display: block;
+        opacity: 0;
+        transform: translateY(80px);
+    }
+    100% {
+        opacity: 1;
+    }
+`
 
 export const Shadow = styled.div`
   width: ${({ width }: { width?: number }) => `${width}px`};
@@ -18,9 +34,20 @@ export const Container = styled.div`
   justify-content: center;
 `
 
+export const AnimationContainer = styled(Container)`
+  transition-delay: 2s;
+  display: ${({ shouldAnimate = false }: { shouldAnimate?: boolean }) => (shouldAnimate ? 'flex' : 'none')};
+  animation: ${({ shouldAnimate = false }: { shouldAnimate?: boolean }) =>
+    shouldAnimate
+      ? css`
+          ${grow} 3s
+        `
+      : 'none'};
+`
+
 export const Smile = styled.div`
   top: 47px;
-  border: solid 2px #000;
+  border: solid 2px #000;g
   width: 20px;
   height: 100px;
   position: absolute;

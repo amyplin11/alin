@@ -1,2 +1,2 @@
 export { Eye, EyeBall } from './eyes.styled'
-export { Container, Shadow } from './body.styled'
+export { AnimationContainer, Container, Shadow } from './body.styled'

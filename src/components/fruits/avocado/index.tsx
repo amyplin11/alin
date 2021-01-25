@@ -2,7 +2,7 @@ import React from 'react'
 import { BottomAvo, TopAvo, InnerLayer, Pit } from './avo.styled'
 import { Container, EyeBall, Eye, Shadow } from '../shared'
 
-export const Avocado = () => {
+export const Avocado = ({ shouldAnimate }: { shouldAnimate: boolean }) => {
   return (
     <Container width={180}>
       <TopAvo />

@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from '@emotion/styled'
 import { Link as GatsbyLink } from 'gatsby'
-import { Global, css } from '@emotion/core'
-import { DoubleRightOutlined } from '@ant-design/icons'
+import { Global, css, keyframes } from '@emotion/core'
+import { DoubleRightOutlined, PlusCircleOutlined } from '@ant-design/icons'
 
 import { PageContainer } from 'src/components/page-container'
 import { Avocado, Blueberry } from 'src/components/fruits'
@@ -42,16 +42,21 @@ const LeftContainer = styled.div`
   }
 `
 
-const MiddleContainer = styled.div`
+const FruitsContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  flex-direction; column;
+
   margin: 30px 0;
 
   @media only screen and (min-width: ${Widths.SmallScreen}px) {
-    margin: 0px
+    margin: 0px;
   }
+`
+
+const MiddleContainer = styled.div`
+  display: flex;
+  flex-direction: column;
 `
 
 const WelcomeText = styled.p`
@@ -80,7 +85,56 @@ const LinkButton = styled(GatsbyLink)`
   }
 `
 
+const IconButton = styled.button`
+  background-color: transparent;
+  border: 1px solid transparent;
+  border-radius: 50%;
+  justify-self: flex-start;
+  transition: transform 2s;
+
+  &:hover {
+    opacity: 0.4;
+    cursor: pointer;
+  }
+`
+
+const shift = keyframes`
+    0% {
+      transform: translateX(50px);
+    }
+    50% {
+      transform: translateX(-2px);
+    }
+`
+
+const fadein = keyframes`
+  from { opacity: 0; }
+  to   { opacity: 1; }
+`
+
+const ShiftContainer = styled.div`
+  display: flex;
+  animation: ${({ shouldAnimate = false }: { shouldAnimate?: boolean }) =>
+    shouldAnimate
+      ? css`
+          ${shift} 3s
+        `
+      : 'none'};
+`
+
+const SpeechBubble = styled.div`
+  align-self: flex-end;
+  padding-right: 50px;
+`
+
+const SpeechBubbleText = styled.p`
+  transform: rotate(15deg);
+  animation: ${fadein} 2s;
+`
+
 export default function Home() {
+  const [showBlueberry, setShowBlueberry] = useState(false)
+
   return (
     <PageContainer linkColor={Colors.White}>
       <Global
@@ -102,8 +156,25 @@ export default function Home() {
           </LinkButton>
         </LeftContainer>
         <MiddleContainer>
-          <Avocado />
-          <Blueberry />
+          <SpeechBubble>
+            {showBlueberry ? (
+              <SpeechBubbleText>sup!</SpeechBubbleText>
+            ) : (
+              <IconButton
+                onClick={() => setShowBlueberry(true)}
+                style={{ color: 'white', fontWeight: 'bold', fontSize: '26px' }}
+              >
+                <PlusCircleOutlined />
+              </IconButton>
+            )}
+          </SpeechBubble>
+
+          <FruitsContainer>
+            <ShiftContainer shouldAnimate={showBlueberry}>
+              <Avocado />
+            </ShiftContainer>
+            <Blueberry shouldAnimate={showBlueberry} />
+          </FruitsContainer>
         </MiddleContainer>
       </Body>
     </PageContainer>

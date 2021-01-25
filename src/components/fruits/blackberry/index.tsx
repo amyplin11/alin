@@ -1,6 +1,6 @@
 import React from 'react'
-import { Container, BodyBall } from './blackberry.styled'
-import { EyeBall, Eye, Shadow } from '../shared'
+import { BodyBall } from './blackberry.styled'
+import { Container, EyeBall, Eye, Shadow } from '../shared'
 
 export const Blackberry = () => {
   return (
