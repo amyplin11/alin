@@ -167,7 +167,8 @@ const SquaresPage = ({ data }) => {
 
         <Description>
           <DescriptionText>
-            At the end of year in 2020, I took a little road trip from San Jose, California to Miami, Florida and back.
+            At the end of the year in 2020, I took a little road trip from San Jose, California to Miami, Florida and
+            back.
           </DescriptionText>
           <DescriptionText>Here's a snap a day during those 5 weeks:</DescriptionText>
         </Description>
