@@ -6,6 +6,7 @@ import { graphql } from 'gatsby'
 import { Colors } from 'src/styles/colors'
 import { PageContainer } from 'src/components/page-container'
 import { Container, Paper } from 'src/components/layouts.styled'
+import { NavigationLinks } from 'src/components/navigation-links'
 import { SourceLink } from 'src/components/source-link.styled'
 import { Widths } from 'src/styles/widths'
 
@@ -31,7 +32,6 @@ export const query = graphql`
     }
   }
 `
-
 const Text = styled.span`
   color: black;
   font-family: monospace;
@@ -51,8 +51,9 @@ const Title = styled.h1`
   }
 `
 
-export default function BlogPost({ data }) {
+export default function BlogPost({ data, pageContext }) {
   const post = data.markdownRemark
+  const { prev, next } = pageContext
   const { title, sources } = post.frontmatter
 
   return (
@@ -84,6 +85,8 @@ export default function BlogPost({ data }) {
             ))}
           </div>
         </Paper>
+
+        <NavigationLinks prev={prev} next={next} />
       </Container>
     </PageContainer>
   )

@@ -8,6 +8,7 @@ import { Colors } from 'src/styles/colors'
 import { PageContainer } from 'src/components/page-container'
 import { Container, Paper, Picture, RowImageLayout } from 'src/components/layouts.styled'
 import { SourceLink } from 'src/components/source-link.styled'
+import { NavigationLinks } from 'src/components/navigation-links'
 
 export const query = graphql`
   query($slug: String!) {
@@ -57,12 +58,14 @@ const Caption = styled.p`
   font-size: 16px;
 `
 
-export default function BlogPost({ data }) {
+export default function BlogPost({ data, pageContext }) {
   const post = data.markdownRemark
   const { images, title, date, sources } = post.frontmatter
   const htmlSections = post.htmlAst.children.filter(section => section.type === 'element')
   const startSections = htmlSections.slice(0, 2)
   const endSections = htmlSections.slice(2)
+
+  const { prev, next } = pageContext
 
   return (
     <PageContainer linkColor={Colors.Green500}>
@@ -117,6 +120,7 @@ export default function BlogPost({ data }) {
             </SourceLink>
           </p>
         ))}
+        <NavigationLinks prev={prev} next={next} />
       </Container>
     </PageContainer>
   )

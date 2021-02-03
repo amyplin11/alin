@@ -6,13 +6,13 @@ import Img from 'gatsby-image'
 
 import { Colors } from 'src/styles/colors'
 import { PageContainer } from 'src/components/page-container'
+import { NavigationLinks } from 'src/components/navigation-links'
 import { Container, Paper, RowImageLayout } from 'src/components/layouts.styled'
 
 export const query = graphql`
   query($slug: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
       html
-      htmlAst
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
@@ -43,9 +43,9 @@ const Title = styled.h1`
   color: white;
 `
 
-export default function BlogPost({ data }) {
+export default function BlogPost({ data, pageContext }) {
   const post = data.markdownRemark
-  const htmlSections = post.htmlAst.children.filter(section => section.type === 'element')
+  const { prev, next } = pageContext
 
   return (
     <PageContainer linkColor={Colors.Green500}>
@@ -64,13 +64,10 @@ export default function BlogPost({ data }) {
           <Img fluid={post.frontmatter.images[1].childImageSharp.fluid} />
         </RowImageLayout>
 
-        {htmlSections.map(section => {
-          return (
-            <Paper>
-              <Text>{section.children[0].value}</Text>
-            </Paper>
-          )
-        })}
+        <Paper>
+          <Text dangerouslySetInnerHTML={{ __html: post.html }} />
+        </Paper>
+        <NavigationLinks prev={prev} next={next} />
       </Container>
     </PageContainer>
   )

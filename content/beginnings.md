@@ -23,4 +23,4 @@ In short, I want to gain a better understanding on what's happening in the "real
 
 With all that backstory said, I'm hoping to start diving deeper into topics that are important to me. Some might be more serious and relevant, others more light hearted and personal, and I hope you will join me in the learning process on this site! This is my first time putting so many words out into the world, so please bare with me and hopefully it will be worthwhile. With everything that's going on, I truthfully don't know how long this break will last and if we will be able to fulfill our dream of spending a year traveling, but regardless, I hope to see some sights, experience a couple of golden moments and share some of my learnings along the way.
 
-Amy from the back of Taco (pictured above)
+-- Amy from the back of Taco (pictured above)
