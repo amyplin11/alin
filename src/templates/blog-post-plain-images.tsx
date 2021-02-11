@@ -7,6 +7,7 @@ import Img from 'gatsby-image'
 import { Colors } from 'src/styles/colors'
 import { PageContainer } from 'src/components/page-container'
 import { Container, RowImageLayout } from 'src/components/layouts.styled'
+import { NavigationLinks } from 'src/components/navigation-links'
 
 export const query = graphql`
   query($slug: String!) {
@@ -41,9 +42,10 @@ const Title = styled.h1`
   z-index: 1;
 `
 
-export default function BlogPost({ data }) {
+export default function BlogPost({ data, pageContext }) {
   const post = data.markdownRemark
   const { title, images } = post.frontmatter
+  const { prev, next } = pageContext
 
   return (
     <PageContainer linkColor={Colors.Green500}>
@@ -63,6 +65,7 @@ export default function BlogPost({ data }) {
             return <Img fluid={image.childImageSharp.fluid} />
           })}
         </RowImageLayout>
+        <NavigationLinks prev={prev} next={next} />
       </Container>
     </PageContainer>
   )
