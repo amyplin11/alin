@@ -5,9 +5,15 @@ import { AnimationContainer, EyeBall, Eye, Shadow } from '../shared'
 export const Blueberry = ({ shouldAnimate }: { shouldAnimate: boolean }) => {
   return (
     <AnimationContainer width={100} shouldAnimate={shouldAnimate}>
-      <TriangleDown left={20} top={122} />
-      <TriangleDown left={36} top={120} />
-      <TriangleDown left={50} top={122} />
+      <TriangleDown left={50} top={120}>
+        &#9658;
+      </TriangleDown>
+      <TriangleDown left={68} top={118}>
+        &#9658;
+      </TriangleDown>
+      <TriangleDown left={85} top={120}>
+        &#9658;
+      </TriangleDown>
 
       <BodyBall />
 

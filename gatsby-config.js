@@ -62,6 +62,7 @@ module.exports = {
     {
       resolve: `gatsby-transformer-remark`,
       options: {
+        failOnError: false,
         plugins: [
           {
             resolve: `gatsby-remark-images`,
@@ -77,5 +78,18 @@ module.exports = {
         path: `./content`,
       },
     },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        icon: `static/makers-mark-green.svg`, // This path is relative to the root of the site.
+        name: `Amy Lin`,
+        short_name: `AmyLin`,
+        start_url: `/`,
+        background_color: `#c8d8d2`,
+        theme_color: `#c8d8d2`,
+        display: `standalone`,
+      },
+    },
+    `gatsby-plugin-offline`,
   ],
 }

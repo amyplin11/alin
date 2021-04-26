@@ -22,7 +22,6 @@ export const TriangleDown = styled.div`
   top: ${({ top }: PositionProps) => `${top}px`};
   left: ${({ left }: PositionProps) => `${left}px`};
   z-index: 2;
-  border-left: 14px solid transparent;
-  border-right: 14px solid transparent;
-  border-top: 14px solid ${Colors.Green400};
+  color: ${Colors.Green400};
+  transform: rotate(0.25turn) scale(1.5, 2);
 `
