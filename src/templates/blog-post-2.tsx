@@ -7,8 +7,9 @@ import Img from 'gatsby-image'
 import { Colors } from 'src/styles/colors'
 import { PageContainer } from 'src/components/page-container'
 import { Container, Paper, Picture, RowImageLayout } from 'src/components/layouts.styled'
-import { SourceLink } from 'src/components/source-link.styled'
+import { Sources } from 'src/components/sources'
 import { NavigationLinks } from 'src/components/navigation-links'
+import { Text } from 'src/components/text'
 
 export const query = graphql`
   query($slug: String!) {
@@ -34,12 +35,6 @@ export const query = graphql`
   }
 `
 
-const Text = styled.span`
-  color: black;
-  font-family: monospace;
-  font-size: 16px;
-  line-height: 26px;
-`
 const Title = styled.h1`
   display: flex;
   align-self: center;
@@ -112,14 +107,8 @@ export default function BlogPost({ data, pageContext }) {
           <Img fluid={images[6].childImageSharp.fluid} />
         </RowImageLayout>
 
-        <Text>Sources:</Text>
-        {sources.map(({ title, href }) => (
-          <p>
-            <SourceLink target="_blank" href={href}>
-              {title} ({href})
-            </SourceLink>
-          </p>
-        ))}
+        <Sources sources={sources} />
+
         <NavigationLinks prev={prev} next={next} />
       </Container>
     </PageContainer>

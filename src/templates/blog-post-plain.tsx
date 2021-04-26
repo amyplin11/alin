@@ -7,8 +7,9 @@ import { Colors } from 'src/styles/colors'
 import { PageContainer } from 'src/components/page-container'
 import { Container, Paper } from 'src/components/layouts.styled'
 import { NavigationLinks } from 'src/components/navigation-links'
-import { SourceLink } from 'src/components/source-link.styled'
+import { Sources } from 'src/components/sources'
 import { Widths } from 'src/styles/widths'
+import { Text } from 'src/components/text'
 
 export const query = graphql`
   query($slug: String!) {
@@ -31,12 +32,6 @@ export const query = graphql`
       }
     }
   }
-`
-const Text = styled.span`
-  color: black;
-  font-family: monospace;
-  font-size: 16px;
-  line-height: 26px;
 `
 
 const Title = styled.h1`
@@ -72,18 +67,7 @@ export default function BlogPost({ data, pageContext }) {
         <Paper>
           <Text dangerouslySetInnerHTML={{ __html: post.html }} />
 
-          <b>
-            <Text>Sources:</Text>
-          </b>
-          <div>
-            {sources.map(({ title, href }) => (
-              <p>
-                <SourceLink target="_blank" href={href}>
-                  {title} ({href})
-                </SourceLink>
-              </p>
-            ))}
-          </div>
+          <Sources sources={sources} />
         </Paper>
 
         <NavigationLinks prev={prev} next={next} />
