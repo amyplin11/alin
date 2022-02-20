@@ -2,7 +2,7 @@ import React, { FunctionComponent, useState } from 'react'
 import styled from '@emotion/styled'
 import { MenuOutlined, CloseOutlined } from '@ant-design/icons'
 
-import { Menu } from './menu'
+import { TemporaryMenu } from './temporary-menu'
 import { Widths } from 'src/styles/widths'
 import MakersMarkWhite from '../../../static/makers-mark-white.svg'
 import MakersMarkGreen from '../../../static/makers-mark-green.svg'
@@ -17,6 +17,7 @@ const Container = styled.div`
   background-color: ${({ backgroundColor }: ResponsiveMenuState) => backgroundColor};
   overflow: ${({ isMenuOpen }: ResponsiveMenuState) => (isMenuOpen ? 'hidden' : 'scroll')};
   position: ${({ isMenuOpen }: ResponsiveMenuState) => (isMenuOpen ? 'fixed' : '')};
+  height: 100vh;
 `
 
 const Header = styled.div`
@@ -73,6 +74,10 @@ const HorizontalLinksContainer = styled.div`
   }
 `
 
+const TemporaryLinksContainer = styled.div`
+  display: flex;
+`
+
 const Link = styled(GatsbyLink)`
   width: 50px;
 `
@@ -113,22 +118,22 @@ export const PageContainer: FunctionComponent<HeaderProps> = ({ linkColor, child
 
         <NameContainer linkColor={linkColor}>amy lin</NameContainer>
 
-        <IconButton onClick={() => setIsMenuOpen(!isMenuOpen)}>
+        {/* <IconButton onClick={() => setIsMenuOpen(!isMenuOpen)}>
           {isMenuOpen ? (
             <CloseOutlined style={{ color: linkColor, fontWeight: 'bold', fontSize: '26px' }} />
           ) : (
             <MenuOutlined style={{ color: linkColor, fontWeight: 'bold', fontSize: '26px' }} />
           )}
-        </IconButton>
+        </IconButton> */}
 
-        <HorizontalLinksContainer>
-          <Menu linkColor={linkColor} />
-        </HorizontalLinksContainer>
+        <TemporaryLinksContainer>
+          <TemporaryMenu linkColor={linkColor} />
+        </TemporaryLinksContainer>
       </Header>
-
+      {/* 
       <ResponsiveLinksContainer backgroundColor={backgroundColor} isMenuOpen={isMenuOpen}>
         <Menu linkColor={linkColor} />
-      </ResponsiveLinksContainer>
+      </ResponsiveLinksContainer> */}
 
       {children}
     </Container>

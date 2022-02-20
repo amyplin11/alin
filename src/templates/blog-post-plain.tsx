@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import { Global, css } from '@emotion/core'
+import { Global, css } from '@emotion/react'
 import { graphql } from 'gatsby'
 
 import { Colors } from 'src/styles/colors'
