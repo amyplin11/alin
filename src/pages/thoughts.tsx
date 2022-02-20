@@ -1,7 +1,7 @@
 import React from 'react'
 import { graphql, Link } from 'gatsby'
 import styled from '@emotion/styled'
-import { Global, css } from '@emotion/core'
+import { Global, css } from '@emotion/react'
 
 import { PageContainer } from 'src/components/page-container'
 import { Colors } from '../styles/colors'

@@ -1,8 +1,6 @@
-import React, { useState } from 'react'
+import React from 'react'
 import styled from '@emotion/styled'
-import { Link as GatsbyLink } from 'gatsby'
-import { Global, css, keyframes } from '@emotion/core'
-import { DoubleRightOutlined, PlusCircleOutlined } from '@ant-design/icons'
+import { Global, css, keyframes } from '@emotion/react'
 
 import { PageContainer } from 'src/components/page-container'
 import { Avocado, Blueberry } from 'src/components/fruits'
@@ -10,20 +8,16 @@ import { Colors } from 'src/styles/colors'
 import { Widths } from 'src/styles/widths'
 
 const Body = styled.div`
-  display: grid;
-  grid-template-columns: auto;
-  grid-template-rows: auto;
+  display: flex;
   align-items: center;
+  justify-content: center;
   background-color: ${Colors.Green100};
   height: 100%;
+  min-width: 300px;
+  flex-direction: column;
 
   @media only screen and (min-width: ${Widths.ExtraSmallScreen}px) {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  @media only screen and (min-width: ${Widths.MediumScreen}px) {
-    padding-top: 120px;
-    grid-template-columns: 1fr 1fr 1fr;
+    flex-direction: row;
   }
 `
 
@@ -31,71 +25,45 @@ const LeftContainer = styled.div`
   display: flex;
   align-items: flex-start;
   flex-direction: column;
-  padding: 20px 50px;
-  margin: 30px 0;
-
-  @media only screen and (min-width: ${Widths.SmallScreen}px) {
-    padding: 50px;
-    padding: 0;
-    margin-top: 40px;
-    margin-left: 170px;
-  }
+  padding: 50px;
 `
 
 const FruitsContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: flex-end;
-
-  margin: 30px 0;
-
-  @media only screen and (min-width: ${Widths.SmallScreen}px) {
-    margin: 0px;
-  }
 `
 
 const MiddleContainer = styled.div`
   display: flex;
   flex-direction: column;
+  padding: 0px 30px;
+
+  @media only screen and (min-width: ${Widths.ExtraSmallScreen}px) {
+    font-size: 40px;
+    padding: 0px;
+  }
 `
 
-const WelcomeText = styled.p`
+const WelcomeText = styled.h2`
   font-weight: bold;
   margin: 0;
-  font-size: 60px;
-`
+  font-size: 30px;
+  overflow-wrap: normal;
+  max-width: 400px;
 
-const DescriptiveText = styled.p`
-  font-weight: 400;
-  font-size: 22px;
-`
+  @media only screen and (min-width: ${Widths.ExtraSmallScreen}px) {
+    font-size: 40px;
+  }
 
-const LinkButton = styled(GatsbyLink)`
-  border: 1px solid white;
-  color: white;
-  background-color: transparent;
-  padding: 6px;
-  border-radius: 4px;
-  font-size: 16px;
-  text-decoration: none;
-
-  &:hover {
-    opacity: 0.4;
-    cursor: pointer;
+  @media only screen and (min-width: ${Widths.MediumScreen}px) {
+    font-size: 50px;
   }
 `
 
-const IconButton = styled.button`
-  background-color: transparent;
-  border: 1px solid transparent;
-  border-radius: 50%;
-  justify-self: flex-start;
-  transition: transform 2s;
-
-  &:hover {
-    opacity: 0.4;
-    cursor: pointer;
-  }
+const DescriptionText = styled.p`
+  max-width: 400px;
+  font-size: 20px;
 `
 
 const shift = keyframes`
@@ -112,29 +80,7 @@ const fadein = keyframes`
   to   { opacity: 1; }
 `
 
-const ShiftContainer = styled.div`
-  display: flex;
-  animation: ${({ shouldAnimate = false }: { shouldAnimate?: boolean }) =>
-    shouldAnimate
-      ? css`
-          ${shift} 3s
-        `
-      : 'none'};
-`
-
-const SpeechBubble = styled.div`
-  align-self: flex-end;
-  padding-right: 50px;
-`
-
-const SpeechBubbleText = styled.p`
-  transform: rotate(15deg);
-  animation: ${fadein} 2s;
-`
-
 export default function Home() {
-  const [showBlueberry, setShowBlueberry] = useState(false)
-
   return (
     <PageContainer linkColor={Colors.White}>
       <Global
@@ -148,33 +94,14 @@ export default function Home() {
 
       <Body>
         <LeftContainer>
-          <WelcomeText>Hello.</WelcomeText>
-          <DescriptiveText>Thanks for joining me. Take a peek at what I've been pondering</DescriptiveText>
-          <LinkButton to="/thoughts">
-            THOUGHTS
-            <DoubleRightOutlined />
-          </LinkButton>
+          <FruitsContainer>
+            <Avocado />
+            <Blueberry />
+          </FruitsContainer>
         </LeftContainer>
         <MiddleContainer>
-          <SpeechBubble>
-            {showBlueberry ? (
-              <SpeechBubbleText>sup!</SpeechBubbleText>
-            ) : (
-              <IconButton
-                onClick={() => setShowBlueberry(true)}
-                style={{ color: 'white', fontWeight: 'bold', fontSize: '26px' }}
-              >
-                <PlusCircleOutlined />
-              </IconButton>
-            )}
-          </SpeechBubble>
-
-          <FruitsContainer>
-            <ShiftContainer shouldAnimate={showBlueberry}>
-              <Avocado />
-            </ShiftContainer>
-            <Blueberry shouldAnimate={showBlueberry} />
-          </FruitsContainer>
+          <WelcomeText>We are under construction!</WelcomeText>
+          <DescriptionText>This has admittedly been a bit neglected but we will be back soon!</DescriptionText>
         </MiddleContainer>
       </Body>
     </PageContainer>
